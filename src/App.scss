@@ -1,0 +1,26 @@
+@import "variables";
+
+.appWrapper{
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.04);
+  grid-auto-rows: 80px auto;
+  grid-auto-columns: 300px 1100px;
+  grid-template-areas:
+          "header header"
+          "side-component component"
+          "side-component component"
+}
+.appWrapperSideContent {
+  grid-area: side-component;
+  background-color: $shade-dark-blue;
+}
+.appWrapperContent {
+  grid-area: component;
+  border-right: 1px solid $light-gray;
+}
+
+
+
+

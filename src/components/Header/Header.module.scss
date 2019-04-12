@@ -1,0 +1,37 @@
+@import "../../variables";
+
+.headerWrapper {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: white;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 80px;
+    background-color: $shade-dark-blue;
+    border-bottom: 2px solid #223344;
+    color: $white;
+    font-size: 38px;
+    font-family: Pacifico, cursive;
+    font-weight: 600;
+    letter-spacing: -2px;
+
+}
+.header {
+    display: flex;
+    width: 100vw;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid $light-gray;
+
+
+}
+

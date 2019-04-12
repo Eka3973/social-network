@@ -1,0 +1,43 @@
+@import "../../../variables";
+/*outline: 1px solid red;*/
+
+.friendWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $shade-blue;
+    width: 300px;
+}
+
+.friendItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 150px;
+}
+.friendName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    width: 100px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.friendImage {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 13px;
+
+}
+
+.friendImage img {
+    width: 100%;
+    border-radius: 100%;
+
+}
+
