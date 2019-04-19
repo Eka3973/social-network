@@ -30,7 +30,7 @@ let initialState =
         {
             id: 4,
             path: "/music",
-            pageName: 'FriendsList',
+            pageName: 'Music',
             iconSrc: musicImg,
             iconAlt: 'Icon music'
         },

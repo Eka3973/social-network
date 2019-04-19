@@ -1,0 +1,47 @@
+@import "../../variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: $shade-dark-blue;
+
+}
+.blockLogin {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  outline: 1px solid red;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+  color: $white;
+  font-size: 30px;
+  font-family: Pacifico, cursive;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin-top: 50px;
+}
+
+input {
+  width: 320px;
+  height: 40px;
+  margin: 10px;
+  background: #223344;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+}
+
+.checkbox {
+  height: 20px;
+}
+.button {
+margin: 10px;}

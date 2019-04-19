@@ -12,7 +12,16 @@ export const getSubscribe =(userId) => {
 
 
 };
-// .catch((response) => {
-// //     if (response.response.status === 401) {
-// //         alert("Нет прав доступа. Пройдите авторизацию")
-// //     }
+ export const getUnsubscribe = (userId) => {
+     return samuraiAPI.delete('follow/' + userId)
+         .then(res => userId)
+
+ };
+
+ // export const getLogin = (login, password, rememberMe) => {
+ //     return samuraiAPI.post ('auth/login', {
+ //         email: login,
+ //         password: password,
+ //         rememberMe: rememberMe
+ //     }).then(res => res.data)
+ // };

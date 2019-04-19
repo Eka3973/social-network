@@ -1,15 +1,18 @@
 import React from 'react';
 import style from './Header.module.scss';
+import Logo from "./Logo/Logo";
+import ConnectedHeaderProfile from "./HeaderProfile/HeaderProfileContainer";
+
+
 
 const Header = () => {
-
     return (
         <header className={style.headerWrapper}>
-            <div className={style.logo}>
-                Yo! React
-            </div>
-            <div className={style.header}> </div>
-        </header>)
+            <Logo />
+            <ConnectedHeaderProfile/>
+        </header>
+    )
+
 };
 export default Header;
 

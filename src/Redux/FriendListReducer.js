@@ -1,6 +1,5 @@
-import samuraiAPI from "../components/DAL/CreateInstance";
 import iconUserImg from "../images/user.svg";
-import {getFriends, getSubscribe} from "../components/DAL/samuraiAPI";
+import {getFriends, getSubscribe, getUnsubscribe} from "../components/DAL/samuraiAPI";
 
 export const SET_FRIENDS = 'SN/FRIENDS_LIST/SET_FRIEND';
 export const UNSUBSCRIBE = 'SN/USERS/UNSUBSCRIBE';
@@ -52,23 +51,25 @@ export const subscribe = (userId) => {
     return dispatch => {
         getSubscribe(userId).then(res => {
             dispatch(subscribeAC(res));
-        }
-
-        )
-    }
-};
-
-export const unsubscribeAC = (userId) => {
-    return dispatch => {
-        samuraiAPI.delete('follow/' + userId)
-            .then(() => {
-                dispatch(unsubscribe(userId));
+        })
+            .catch((response) => {
+                if (response.response.status === 401) {
+                    alert("No access rights. Please log in.")
+                }
             })
     }
 };
 
-export const setUsersAC = (users) => ({type: SET_FRIENDS, users});
-export const subscribeAC = (userId) => ({type: SUBSCRIBE, userId});
-export const unsubscribe = (userId) => ({type: UNSUBSCRIBE, userId});
+export const unsubscribe = (userId) => {
+    return dispatch => {
+        getUnsubscribe(userId).then(res => {
+            dispatch(unsubscribeAC(res))
+        })
+    }
+};
+
+const setUsersAC = (users) => ({type: SET_FRIENDS, users});
+const subscribeAC = (userId) => ({type: SUBSCRIBE, userId});
+const unsubscribeAC = (userId) => ({type: UNSUBSCRIBE, userId});
 
 export default friendListReducer;

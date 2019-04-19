@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './FrendsTitle.module.scss';
+import style from './FriendsTitle.module.scss';
 import {NavLink} from "react-router-dom";
 
 

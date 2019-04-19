@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setUsers, subscribe, unsubscribeAC} from "../../Redux/FriendListReducer";
+import {setUsers, subscribe, unsubscribe} from "../../Redux/FriendListReducer";
 import FriendsList from "./FriendsList";
 
 
@@ -19,11 +19,11 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(subscribe(userId))
     },
     unsubscribe: (userId) => {
-        dispatch(unsubscribeAC(userId))
+        dispatch(unsubscribe(userId))
     },
 
 });
 
 
-const ConnectedUsers = connect(mapStateToProps, mapDispatchToProps)(FriendsList);
-export default ConnectedUsers;
+const ConnectedFriends = connect(mapStateToProps, mapDispatchToProps)(FriendsList);
+export default ConnectedFriends;

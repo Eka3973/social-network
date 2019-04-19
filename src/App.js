@@ -9,7 +9,8 @@ import SideBar from "./components/SideBar/SideBar";
 import {Route} from "react-router-dom";
 import ConnectedNavbarPage from "./components/Navbar/NavbarContainer";
 import Profile from "./components/Profile/Profile";
-import ConnectedUsers from "./components/FriendsList/FriendsListContainer";
+import ConnectedFriends from "./components/FriendsList/FriendsListContainer";
+import ConnectedLogin from "./components/Login/LoginContainer";
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
                 <Route exact path='/news' component={News}/>
                 <Route exact path='/music' component={Music}/>
                 <Route exact path='/settings' component={Settings}/>
-                <Route exact path='/users' component={ConnectedUsers}/>
+                <Route exact path='/users' component={ConnectedFriends}/>
+                <Route exact path='/login' component={ConnectedLogin}/>
 
             </div>
         </div>

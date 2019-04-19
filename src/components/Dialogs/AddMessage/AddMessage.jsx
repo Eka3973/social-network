@@ -10,8 +10,8 @@ const AddMessage = ({addMessage, updateMessage, addMyMessage: {myImg, myImgAlt},
         let addedMessage = newMessage.current.value;
         addMessage(addedMessage);
     };
-    const onMessageChange = () => {
-        let enteredTextMessage = newMessage.current.value;
+    const onMessageChange = (e) => {
+        let enteredTextMessage = e.target.value;
         updateMessage(enteredTextMessage);
     };
 

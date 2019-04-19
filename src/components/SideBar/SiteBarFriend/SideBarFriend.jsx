@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 const SideBarFriend = ({users, altImg, iconUserSrc}) => {
 
 
-    const friendItem = users.filter((elem) => elem.followed === true).map((elem) =>
+    const friendItem = users.filter((elem) => elem.followed === true).map((elem, i) =>
+        i < 5 ?
         <div key={elem.id} className={style.friendItem}>
             <div className={style.friendImage}>
                 {elem.photos.small ? <img src={elem.photos.small} alt={altImg}/> :
@@ -14,7 +15,7 @@ const SideBarFriend = ({users, altImg, iconUserSrc}) => {
             <div className={style.friendName}>
                 <span>{elem.name}</span>
             </div>
-        </div>);
+        </div> : null);
 
     return (
         <div className={style.friendWrapper}>
