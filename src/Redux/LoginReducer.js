@@ -46,7 +46,7 @@ export const loginUp = (login, password, rememberMe) => {
             if (res.data.resultCode === 0) {
                 dispatch(setStatus(statuses.SUCCESS));
                 dispatch(setIsAuth(true));
-                dispatch(me());
+                dispatch(me())
             } else {
                 dispatch(setStatus(statuses.ERROR));
                 dispatch(setMessage(res.data.messages[0]));

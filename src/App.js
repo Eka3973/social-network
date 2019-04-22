@@ -28,9 +28,8 @@ const App = () => {
                 <Route exact path='/music' component={Music}/>
                 <Route exact path='/settings' component={Settings}/>
                 <Route exact path='/users' component={ConnectedFriends}/>
-                <Route exact path='/login' component={ConnectedLogin}/>
-
             </div>
+            <Route exact path='/login' component={ConnectedLogin}/>
         </div>
     )
 };

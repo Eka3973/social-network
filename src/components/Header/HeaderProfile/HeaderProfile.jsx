@@ -32,7 +32,7 @@ const HeaderProfile = ({isAuth, userInfo, logOut}) => {
 };
 
 
-class HeaderProfileContainer extends React.Component {
+class HeaderProfileHOC extends React.Component {
     componentWillMount() {
         this.props.me();
     }
@@ -42,8 +42,7 @@ class HeaderProfileContainer extends React.Component {
     }
 }
 
-export default HeaderProfileContainer;
-
+export default HeaderProfileHOC;
 
 
 

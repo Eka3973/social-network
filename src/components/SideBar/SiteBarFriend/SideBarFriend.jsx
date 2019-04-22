@@ -6,7 +6,7 @@ const SideBarFriend = ({users, altImg, iconUserSrc}) => {
 
 
     const friendItem = users.filter((elem) => elem.followed === true).map((elem, i) =>
-        i < 5 ?
+        i <= 5 ?
         <div key={elem.id} className={style.friendItem}>
             <div className={style.friendImage}>
                 {elem.photos.small ? <img src={elem.photos.small} alt={altImg}/> :

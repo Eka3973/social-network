@@ -1,7 +1,5 @@
 import samuraiAPI from "../components/DAL/CreateInstance";
 
-
-
 const SET_IS_AUTH = 'SN/AUTH/SET_IS_AUTH';
 const SET_USER_INFO = 'SN/AUTH/SET_USER_INFO';
 
