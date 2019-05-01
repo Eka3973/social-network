@@ -7,10 +7,10 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import SideBar from "./components/SideBar/SideBar";
 import {Route} from "react-router-dom";
-import ConnectedNavbarPage from "./components/Navbar/NavbarContainer";
+import ConnectedNavbarPage from "./components/Navbar/NavbarConnect";
 import Profile from "./components/Profile/Profile";
-import ConnectedFriends from "./components/FriendsList/FriendsListContainer";
-import ConnectedLogin from "./components/Login/LoginContainer";
+import ConnectedFriends from "./components/FriendsList/FriendsListConnect";
+import ConnectedLogin from "./components/Login/LoginConnect";
 
 
 const App = () => {

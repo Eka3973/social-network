@@ -1,7 +1,6 @@
 import profileHeaderImg from "../images/profileHeaderImg.jpg";
 
 export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
-export const UPDATE_NEW_POST_TEXT = 'SN/MY_POSTS/UPDATE_NEW_POST_TEXT';
 
 const initialState = {
     profileHeader: {
@@ -30,10 +29,7 @@ const initialState = {
     myPosts: {
         titlePost: 'My posts',
         placeholderPost:
-            'Your news...',
-        buttonPost:
-            'Add post',
-
+            'Your news...'
     }
     ,
     posts: [
@@ -64,7 +60,6 @@ const initialState = {
             like: 'like',
             counter: 38
         }],
-    newPostText: ""
 
 };
 
@@ -79,7 +74,7 @@ const profileReducer = (state = initialState, action) => {
                     postImg: state.description.descriptionImg,
                     postAlt: state.description.descriptionAlt,
                     name: state.description.userName,
-                    itemPost: state.newPostText,
+                    itemPost: action.post,
                     like: 'like',
                     counter: 0,
                 };
@@ -87,23 +82,15 @@ const profileReducer = (state = initialState, action) => {
                     ...state,
                     posts: [addPost, ...state.posts]
                 };
-
-                copyState.newPostText = '';
                 return copyState;
             }
             return state;
 
-        case UPDATE_NEW_POST_TEXT:
-            copyState = {...state};
-            copyState.newPostText = action.newText;
-            return copyState;
         default:
             return state;
     }
 };
 
-export const addUpdateNewPostActionCreator = (enteredTextPost) =>
-     ({type: UPDATE_NEW_POST_TEXT, newText: enteredTextPost});
 
 export const addPostActionCreator = (addedPost) =>
     ({type: ADD_MY_POST, post: addedPost});

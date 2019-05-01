@@ -1,9 +1,9 @@
 import React from 'react';
 import style from "./Profile.module.scss";
-import ConnectedMyPostsPage from "./MyPost/MyPostContainer";
-import ConnectedPost from "./Posts/PostsContainer";
-import ConnectedProfileHeader from "./ProfileHeader/ProfileHeaderContainer";
-import ConnectedDescription from "./Description/DescriptionContainer";
+import ConnectedMyPostsPage from "./MyPost/MyPostConnect";
+import ConnectedPost from "./Posts/PostsConnect";
+import ConnectedProfileHeader from "./ProfileHeader/ProfileHeaderConnect";
+import ConnectedDescription from "./Description/DescriptionConnect";
 
 
 const Profile = () => {

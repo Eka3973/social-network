@@ -49,7 +49,8 @@ export const setUsers = (users) => {
 
 export const subscribe = (userId) => {
     return dispatch => {
-        getSubscribe(userId).then(res => {
+        getSubscribe(userId)
+            .then(res => {
             dispatch(subscribeAC(res));
         })
             .catch((response) => {

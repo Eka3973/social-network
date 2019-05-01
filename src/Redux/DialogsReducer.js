@@ -1,5 +1,4 @@
 export const ADD_MESSAGE = 'SW/MESSAGE/ADD_MESSAGE';
-export const UPDATE_NEW_MESSAGE_TEXT = 'SW/MESSAGE/UPDATE_NEW_MESSAGE_TEXT';
 
 const initialState = {
 
@@ -88,7 +87,7 @@ const initialState = {
         myImgAlt: 'Profile picture of Jill Smith',
     },
     placeholderMessage: 'Your message...',
-    newMessageText: ""
+
 };
 
 
@@ -101,29 +100,20 @@ const dialogsReducer = (state = initialState, action) => {
                     id: 4,
                     userImg: state.addMyMessage.myImg,
                     userAlt: state.addMyMessage.myImgAlt,
-                    userMessage: state.newMessageText,
+                    userMessage: action.comment
                 };
                 copyState = {
                     ...state,
                     messages: [...state.messages, addMessage]
                 };
-                copyState.newMessageText = '';
                 return copyState;
             }
             return state;
 
-        case UPDATE_NEW_MESSAGE_TEXT:
-            copyState = {...state};
-            copyState.newMessageText = action.newComment;
-
-            return copyState;
         default:
             return state;
     }
 };
-export const updateNewMessageActionCreator = (enteredTextMessage) =>
-    ({type: UPDATE_NEW_MESSAGE_TEXT, newComment: enteredTextMessage});
-
 export const addMessageActionCreator = (addedMessage) =>
     ({type: ADD_MESSAGE, comment: addedMessage});
 

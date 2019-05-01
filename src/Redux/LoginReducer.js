@@ -1,9 +1,10 @@
-import samuraiAPI from "../components/DAL/CreateInstance";
 import {me, setIsAuth} from "./AuthReducer";
+import {makeLogin} from "../components/DAL/samuraiAPI";
 
 
 const SET_STATUS = 'SN/LOGIN/SET_STATUS';
 const SET_MESSAGE = 'SN/LOGIN/SET_MESSAGE';
+const SET_IS_LOGIN = 'SN/LOGIN/SET_IS_LOGIN';
 
 
 export const statuses = {
@@ -16,7 +17,8 @@ export const statuses = {
 
 let initialState = {
     status: statuses.INIT,
-    message: ''
+    message: '',
+    isLogin: false
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -28,6 +30,10 @@ const loginReducer = (state = initialState, action) => {
             case SET_MESSAGE:{
                 return {...state, message: action.message};
             }
+        case SET_IS_LOGIN: {
+            
+            return {...state, isLogin: !state.isLogin}
+        }
 
         default:
             return state;
@@ -38,24 +44,25 @@ export default loginReducer;
 export const loginUp = (login, password, rememberMe) => {
     return dispatch => {
         setStatus(statuses.INPROGRESS);
-        samuraiAPI.post('auth/login', {
-            email: login,
-            password: password,
-            rememberMe: rememberMe
-        }).then(res => {
+        //запуск крутилки
+        makeLogin(login, password, rememberMe)
+       .then(res => {
             if (res.data.resultCode === 0) {
                 dispatch(setStatus(statuses.SUCCESS));
                 dispatch(setIsAuth(true));
-                dispatch(me())
+                dispatch(me());
+                dispatch(isLogin())
+                // disable крутилку
             } else {
                 dispatch(setStatus(statuses.ERROR));
                 dispatch(setMessage(res.data.messages[0]));
+                // disable крутилку
             }
         })
     }
 };
 
 
-
+export const isLogin = () => ({type: SET_IS_LOGIN});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 export const setMessage = (message) => ({type: SET_MESSAGE, message});

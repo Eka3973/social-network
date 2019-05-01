@@ -26,7 +26,7 @@ const SideBarFriend = ({users, altImg, iconUserSrc}) => {
 export default SideBarFriend;
 
 SideBarFriend.propTypes = {
-    sideBarFriend: PropTypes.array.isRequired,
+    users: PropTypes.array.isRequired,
 };
 
 

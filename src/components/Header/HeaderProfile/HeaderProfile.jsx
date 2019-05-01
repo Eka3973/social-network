@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './HeaderProfile.module.scss';
-import {NavLink, Redirect} from "react-router-dom";
+import PropTypes from "prop-types";
+import {Redirect} from "react-router-dom";
+
 
 
 const HeaderProfile = ({isAuth, userInfo, logOut}) => {
@@ -13,37 +15,23 @@ const HeaderProfile = ({isAuth, userInfo, logOut}) => {
 
     return (
         <div className={style.headerProfile}>
-            {
-                isAuth &&
-            <div className={style.login}>
+            <div>
                 <span>{userInfo.userName}</span>
                 <button onClick={onLogOutClick}>Log Out</button>
             </div>
-            }
-            {
-                !isAuth &&
-            <NavLink to='/login'>
-                <button>Sign In</button>
-            </NavLink>
 
-            }
         </div>
     )
 };
 
-
-class HeaderProfileHOC extends React.Component {
-    componentWillMount() {
-        this.props.me();
-    }
-
-    render() {
-        return <HeaderProfile {...this.props}/>
-    }
-}
-
-export default HeaderProfileHOC;
+export default HeaderProfile;
 
 
+HeaderProfile.propTypes = {
+    isAuth: PropTypes.bool,
+    userInfo: PropTypes.object,
+    logOut: PropTypes.func
 
+
+};
 

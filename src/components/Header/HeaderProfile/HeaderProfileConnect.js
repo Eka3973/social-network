@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
-import HeaderProfileContainer from "./HeaderProfile";
+import HeaderProfile from "./HeaderProfile";
 import {logOut, me} from "../../../Redux/AuthReducer";
+import {isLogin} from "../../../Redux/LoginReducer";
 
 
 
@@ -19,10 +20,11 @@ const mapDispatchToProps = (dispatch) => ({
     },
     logOut: () => {
         dispatch(logOut());
+        dispatch(isLogin());
     }
 });
 
 
 
-const ConnectedHeaderProfile = connect(mapStateToProps, mapDispatchToProps)(HeaderProfileContainer);
+const ConnectedHeaderProfile = connect(mapStateToProps, mapDispatchToProps)(HeaderProfile);
 export default ConnectedHeaderProfile;
