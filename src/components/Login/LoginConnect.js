@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Login from "./Login";
+import LoginContainer from "./LoginContainer";
 import {loginUp} from "../../Redux/LoginReducer";
 
 
@@ -21,5 +21,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-const ConnectedLogin = connect(mapStateToProps, mapDispatchToProps)(Login);
+const ConnectedLogin = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
 export default ConnectedLogin;

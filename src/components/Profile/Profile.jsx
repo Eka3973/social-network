@@ -6,15 +6,20 @@ import ConnectedProfileHeader from "./ProfileHeader/ProfileHeaderConnect";
 import ConnectedDescription from "./Description/DescriptionConnect";
 
 
-const Profile = () => {
-    return (
-        <div className={style.ProfileWrapper}>
-            <ConnectedProfileHeader />
-            <ConnectedDescription />
-            <ConnectedMyPostsPage />
-            <ConnectedPost />
-        </div>
-    )
+class Profile extends React.Component {
+
+   render() {
+        //усли приходит me отрисовываем профайл, если нет то логин
+
+        return (
+            <div className={style.ProfileWrapper}>
+                <ConnectedProfileHeader/>
+                <ConnectedDescription/>
+                <ConnectedMyPostsPage/>
+                <ConnectedPost/>
+            </div>
+        )
+    }
 };
 export default Profile;
 

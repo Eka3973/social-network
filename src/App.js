@@ -13,25 +13,34 @@ import ConnectedFriends from "./components/FriendsList/FriendsListConnect";
 import ConnectedLogin from "./components/Login/LoginConnect";
 
 
-const App = () => {
-    return (
-        <div className='appWrapper'>
-            <Header/>
-            <div className={'appWrapperSideContent'}>
-                <ConnectedNavbarPage/>
-                <SideBar/>
+class App extends React.Component {
+    // state = {
+    //     //     loggedIn: true
+    //     // };
+
+    render() {
+        return (
+            <div className='appWrapper'>
+                <div className='appWrapperHeader'><Header/>
+                </div>
+                <div className='appWrapperSideContent'>
+                    <ConnectedNavbarPage/>
+                    <SideBar/>
+                </div>
+                <div className='appWrapperContent'>
+                    <Route exact path='/dialogs' component={Dialogs}/>
+                    <Route exact path='/profile' component={Profile}/>
+                    <Route exact path='/news' component={News}/>
+                    <Route exact path='/music' component={Music}/>
+                    <Route exact path='/settings' component={Settings}/>
+                    <Route exact path='/users' component={ConnectedFriends}/>
+                </div>
+                <div className='appWrapperLoginPage'>
+                    <Route exact path='/login' component={ConnectedLogin}/>
+                </div>
             </div>
-            <div className='appWrapperContent'>
-                <Route exact path='/dialogs' component={Dialogs}/>
-                <Route exact path='/profile' component={Profile}/>
-                <Route exact path='/news' component={News}/>
-                <Route exact path='/music' component={Music}/>
-                <Route exact path='/settings' component={Settings}/>
-                <Route exact path='/users' component={ConnectedFriends}/>
-            </div>
-            <Route exact path='/login' component={ConnectedLogin}/>
-        </div>
-    )
+        )
+    }
 };
 export default App;
 

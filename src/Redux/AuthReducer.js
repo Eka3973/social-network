@@ -1,4 +1,4 @@
-import samuraiAPI from "../components/DAL/CreateInstance";
+import {getLogout, getMe} from "../components/DAL/samuraiAPI";
 const SET_IS_AUTH = 'SN/AUTH/SET_IS_AUTH';
 const SET_USER_INFO = 'SN/AUTH/SET_USER_INFO';
 
@@ -35,7 +35,7 @@ export default AuthReducer;
 
 export const me = () => {
     return dispatch => {
-        samuraiAPI.get('auth/me')
+        getMe()
             .then(res => {
                 if (res.data.resultCode === 0) {
                     dispatch(setUserInfo(res.data.data.userId, res.data.data.login));
@@ -46,7 +46,7 @@ export const me = () => {
 
 export const logOut = () => {
     return dispatch => {
-        samuraiAPI.post('auth/logout')
+        getLogout()
             .then(res => {
                 if (res.data.resultCode === 0) {
                     dispatch(setIsAuth(false));

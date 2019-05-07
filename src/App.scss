@@ -2,24 +2,35 @@
 
 .appWrapper{
   display: grid;
-  width: 100%;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.04);
-  grid-auto-rows: 80px auto;
-  grid-auto-columns: 300px 1100px;
-  grid-template-areas:
-          "header header"
-          "side-component component"
+  grid-template-rows: 80px 880px;
+  grid-template-columns: 300px 1100px 280px;
+}
+.appWrapperHeader{
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
 
 }
 .appWrapperSideContent {
-  grid-area: side-component;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
   background-color: $shade-dark-blue;
 }
 .appWrapperContent {
-  grid-area: component;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
   border-right: 1px solid $light-gray;
 }
+.appWrapperLoginPage {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
 
 
 

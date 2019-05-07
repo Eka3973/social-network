@@ -1,8 +1,6 @@
 import React from 'react';
-import style from './AddMessage.module.scss';
 import PropTypes from "prop-types";
-import AddMessageTextArea from "./AddMessageTextArea";
-import AddMessageButton from "./AddMessageButton";
+import AddMessage from "./AddMessage";
 
 class AddMessageContainer extends React.Component {
     constructor(props) {
@@ -24,9 +22,13 @@ class AddMessageContainer extends React.Component {
 
     render() {
         return (
-            <div className={style.messageContent}>
-                <AddMessageTextArea {...this.props} onMessageChange={this.onMessageChange} value={this.state.value}/>
-                <AddMessageButton {...this.props} addMessageItem={this.addMessageItem}/>
+            <div>
+                <AddMessage
+                            {...this.props}
+                            onMessageChange={this.onMessageChange}
+                            addMessageItem={this.addMessageItem}
+                            value={this.state.value}/>
+
             </div>
         )
     }

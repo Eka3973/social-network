@@ -26,7 +26,10 @@ export const makeLogin = (login, password, rememberMe) => {
     }).then(res => res);
 };
 
-// export const getMe = (userId, userName)=> {
-//     return samuraiAPI.get('auth/me')
-//         .then(res => reres.data);
-// };
+export const getMe = () => {
+    return samuraiAPI.get('auth/me')
+};
+
+export const getLogout = () => {
+    return samuraiAPI.post('auth/logout')
+};

@@ -1,8 +1,7 @@
 import React from 'react';
 import style from "./MyPost.module.scss";
 import PropTypes from "prop-types";
-import MyPostTextArea from "./MyPostTextArea";
-import MyPostButton from "./MyPostButton";
+import MyPost from "./MyPost";
 
 
 class MyPostContainer extends React.Component {
@@ -28,8 +27,11 @@ class MyPostContainer extends React.Component {
         return (
             <div className={style.myPostWrapper}>
                 <div className={style.myPost}>
-                    <MyPostTextArea {...this.props} value={this.state.value} onPostChange={this.onPostChange}/>
-                    <MyPostButton addText={this.addText}/>
+                    <MyPost {...this.props}
+                            value={this.state.value}
+                            onPostChange={this.onPostChange}
+                            addText={this.addText}/>
+
                 </div>
             </div>
         )

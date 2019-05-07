@@ -1,16 +1,14 @@
 @import "../../variables";
 
 .headerWrapper {
-    grid-area: header;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     background: white;
-
+    position: fixed;
 }
+
 
 
 

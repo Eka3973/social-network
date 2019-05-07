@@ -2,20 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-const MyPostTextArea = ({value, onPostChange, myPosts: {titlePost, placeholderPost}}) => {
+const MyPost = ({value, onPostChange, addText, myPosts: {titlePost, placeholderPost}}) => {
     return (
         <div>
-            <label>
             <h2>{titlePost}</h2>
             <textarea onChange={onPostChange}
                       placeholder={placeholderPost} value={value}/>
-            </label>
+            <button type='button' onClick={addText}>Add post</button>
         </div>)
 };
-export default MyPostTextArea;
+export default MyPost;
 
-MyPostTextArea.propTypes = {
+MyPost.propTypes = {
     onPostChange: PropTypes.func.isRequired,
+    addText: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     myPosts: PropTypes.shape({
         titlePost: PropTypes.string.isRequired,

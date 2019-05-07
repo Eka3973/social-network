@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.messageContent textarea {
+.textarea {
     width: 600px;
     height: 180px;
     margin: 50px 0;
@@ -17,12 +17,12 @@
     outline: none;
 
 }
-.messageContent textarea[placeholder] {
+.textarea[placeholder] {
     padding-left: 15px;
     font-size: 18px;
 }
 
-.messageContent button {
+.button {
     width: 200px;
     height: 40px;
     background: $light-blue;
