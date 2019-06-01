@@ -1,15 +1,19 @@
-import {getLogout, getMe} from "../components/DAL/samuraiAPI";
+import {getLogout, getMe} from "../DAL/samuraiAPI";
+
+
 const SET_IS_AUTH = 'SN/AUTH/SET_IS_AUTH';
 const SET_USER_INFO = 'SN/AUTH/SET_USER_INFO';
+
 
 
 let initialState = {
     isAuth: false,
     userInfo: {
         userId: '',
-        userName: '',
-        avatarUrl: ''
+        userName: ''
+
     }
+
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -19,7 +23,8 @@ const AuthReducer = (state = initialState, action) => {
             return {...state, isAuth: action.value};
         }
         case SET_USER_INFO: {
-            return {...state,
+            return {
+                ...state,
                 userInfo: {
                     ...state.userInfo,
                     userId: action.userId,
@@ -27,35 +32,42 @@ const AuthReducer = (state = initialState, action) => {
                 }
             };
         }
+
         default:
             return state;
     }
 };
 export default AuthReducer;
 
+
 export const me = () => {
     return dispatch => {
-        getMe()
+        return getMe()
             .then(res => {
                 if (res.data.resultCode === 0) {
-                    dispatch(setUserInfo(res.data.data.userId, res.data.data.login));
+                    dispatch(setUserInfo(res.data.data.id, res.data.data.login));
                 }
-            })
+            });
     }
 };
+
+
 
 export const logOut = () => {
     return dispatch => {
         getLogout()
             .then(res => {
-                if (res.data.resultCode === 0) {
-                    dispatch(setIsAuth(false));
-                    dispatch(setUserInfo('null', null));
+                    if (res.data.resultCode === 0) {
+                        dispatch(setIsAuth(false));
+                        dispatch(setUserInfo('null', null));
+                    }
                 }
-            })
+            )
     }
 };
 
 
 export const setIsAuth = (value) => ({type: SET_IS_AUTH, value});
 export const setUserInfo = (userId, userName) => ({type: SET_USER_INFO, userId, userName});
+
+

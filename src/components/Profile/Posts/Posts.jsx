@@ -3,12 +3,11 @@ import style from "./Posts.module.scss";
 import PropTypes from "prop-types";
 
 const Posts = ({posts}) => {
-
     const postItem = posts.map((elem) =>
         <div key={elem.id} className={style.PostItem}>
             <div className={style.PostItemImg}>
                 <img
-                    src={elem.postImg}
+                    src={elem.photo}
                     alt={elem.postAlt}/>
             </div>
             <div className={style.PostItemMessage}>

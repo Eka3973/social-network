@@ -3,7 +3,10 @@ import {connect} from "react-redux";
 
 const  mapStateToProps = (state) => {
     return {
-        dialogsUsers: state.dialogsPage.dialogsUsers
+        dialogsUsers: state.dialogsPage.dialogsUsers,
+        users: state.usersPage.users,
+        iconUserSrc: state.usersPage.iconUserSrc,
+        altImg: state.usersPage.altImg
     }
 };
 const ConnectedDialogsUsers = connect(mapStateToProps)(DialogsUsers);

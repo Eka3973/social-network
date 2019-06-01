@@ -1,6 +1,9 @@
 import profileHeaderImg from "../images/profileHeaderImg.jpg";
 
+import api from "../DAL/samuraiAPI";
+
 export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
+const SET_AUTH_FULL_PROFILE = 'SN/AUTH/SET_AUTH_FULL_PROFILE';
 
 const initialState = {
     profileHeader: {
@@ -9,11 +12,8 @@ const initialState = {
     },
 
     description: {
-        descriptionImg: 'https://avatarko.ru/img/avatar/4/devushka_brunetka_3755.jpg',
         descriptionAlt:
-            'Profile picture of Jill Smith',
-        userName:
-            'Jill Smith ',
+            'Avatar picture of profile',
         niceName:
             '@jillsmith',
         dateOfBirth:
@@ -60,13 +60,23 @@ const initialState = {
             like: 'like',
             counter: 38
         }],
+    photo: null,
+    fullName:''
+
 
 };
 
 
 const profileReducer = (state = initialState, action) => {
-    let copyState;
+
     switch (action.type) {
+        case SET_AUTH_FULL_PROFILE: {
+            return {...state,
+                photo: action.photo,
+                fullName: action.fullName
+
+            };
+        }
         case ADD_MY_POST:
             if (!!action.post.trim()) {
                 let addPost = {
@@ -78,11 +88,10 @@ const profileReducer = (state = initialState, action) => {
                     like: 'like',
                     counter: 0,
                 };
-                copyState = {
+                return {
                     ...state,
                     posts: [addPost, ...state.posts]
                 };
-                return copyState;
             }
             return state;
 
@@ -91,9 +100,19 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
+export const setProfileId = () => {
+    return (dispatch, getState) => {
+        let userId = getState().auth.userInfo.userId;
+        api.getFullUserProfile(userId)
+            .then(res => {
+                dispatch(setAuthAvatar(res.data.photos.small, res.data.fullName))
+            })
+    }
+};
 
-export const addPostActionCreator = (addedPost) =>
-    ({type: ADD_MY_POST, post: addedPost});
+
+export const addPost = (addedPost) =>({type: ADD_MY_POST, post: addedPost});
+export const setAuthAvatar = (photo, fullName) => ({type: SET_AUTH_FULL_PROFILE, photo, fullName});
 
 
 export default profileReducer;

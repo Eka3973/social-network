@@ -1,5 +1,9 @@
 import {me, setIsAuth} from "./AuthReducer";
-import {makeLogin} from "../components/DAL/samuraiAPI";
+import {makeLogin} from "../DAL/samuraiAPI";
+import {setUsers} from "./UsersReducer";
+import {setProfileId} from "./ProfileReducer";
+
+
 
 
 const SET_STATUS = 'SN/LOGIN/SET_STATUS';
@@ -46,12 +50,17 @@ export const loginUp = (login, password, rememberMe) => {
         setStatus(statuses.INPROGRESS);
         //запуск крутилки
         makeLogin(login, password, rememberMe)
-       .then(res => {
+       .then(async res => {
             if (res.data.resultCode === 0) {
                 dispatch(setStatus(statuses.SUCCESS));
                 dispatch(setIsAuth(true));
-                dispatch(me());
-                dispatch(isLogin())
+
+                await dispatch(me());
+                dispatch(setProfileId());
+                dispatch(setUsers());
+                dispatch(isLogin());
+
+
                 // disable крутилку
             } else {
                 dispatch(setStatus(statuses.ERROR));

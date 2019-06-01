@@ -27,7 +27,7 @@ class LoginContainer extends React.Component {
     }
     sendLogin = (e) => {
         e.preventDefault();
-        this.props.login(this.state.email, this.state.password, this.state.rememberMe);
+        this.props.loginUp(this.state.email, this.state.password, this.state.rememberMe);
     };
 
     render() {

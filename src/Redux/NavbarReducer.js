@@ -3,6 +3,8 @@ import envelopeImg from "../images/envelope.svg";
 import newsImg from "../images/news.svg";
 import musicImg from "../images/music.svg";
 import settingsImg from "../images/settings.svg";
+import friendsImg from "../images/friends.svg";
+import followersImg from "../images/followers.svg";
 
 let initialState =
      [
@@ -20,22 +22,38 @@ let initialState =
             iconSrc: envelopeImg,
             iconAlt: 'Icon envelope'
         },
+         {
+             id: 3,
+             path: "/friends",
+             pageName: 'Friends',
+             iconSrc: friendsImg,
+             iconAlt: 'Icon friends'
+
+         },
+         {
+             id: 4,
+             path: "/following",
+             pageName: 'Following',
+             iconSrc: followersImg,
+             iconAlt: 'Icon followers'
+
+         },
         {
-            id: 3,
+            id: 5,
             path: "/news",
             pageName: 'News',
             iconSrc: newsImg,
             iconAlt: 'Icon new'
         },
         {
-            id: 4,
+            id: 6,
             path: "/music",
             pageName: 'Music',
             iconSrc: musicImg,
             iconAlt: 'Icon music'
         },
         {
-            id: 5,
+            id: 7,
             path: "/settings",
             pageName: 'Settings',
             iconSrc: settingsImg,
@@ -46,7 +64,7 @@ let initialState =
     ]
 ;
 const navbarReducer = (state = initialState, action) => {
-    // debugger;
+
     switch (action.type) {
         default:
             return state;

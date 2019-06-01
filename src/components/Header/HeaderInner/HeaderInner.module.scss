@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1380px;
+  height: 80px;
+  background: rgba(110, 110, 110, 0.04);
+  border-bottom: 1px solid $light-gray;
+}
+
+

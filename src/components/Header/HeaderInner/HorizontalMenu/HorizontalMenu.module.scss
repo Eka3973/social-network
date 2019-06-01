@@ -1,0 +1,26 @@
+@import "../../../../variables";
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 700px;
+
+}
+
+.innerWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  width: 300px;
+  cursor: pointer;
+}
+
+.item {
+  text-decoration: none;
+  color: $dark-gray;
+}
+
+.item:hover {
+  color: $light-blue;
+}

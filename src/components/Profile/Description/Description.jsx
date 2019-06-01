@@ -3,18 +3,19 @@ import style from "./Description.module.scss";
 import PropTypes from "prop-types";
 
 
-const Description = ({description: {descriptionImg, descriptionAlt, userName, niceName, dateOfBirth, city, education, Twitter}}) => {
+const Description = ({photo, fullName, description: {descriptionAlt,
+    niceName, dateOfBirth, city, education, Twitter}}) => {
 
     return (
         <div className={style.descriptionWrapper}>
             <div className={style.descriptionImg}>
                 <img
-                    src={descriptionImg}
+                    src={photo}
                     alt={descriptionAlt}/>
             </div>
             <div className={style.descriptionUser}>
                 <div>
-                    <h1>{userName}<span>{niceName}</span></h1>
+                    <h1>{fullName}<span>{niceName}</span></h1>
                 </div>
                 <div>
                     <div className={style.descriptionUserBiography}>
@@ -47,7 +48,6 @@ Description.propTypes = {
 
 Description.propTypes = {
     description: PropTypes.shape({
-        descriptionImg: PropTypes.string.isRequired,
         userName: PropTypes.string.isRequired,
         niceName: PropTypes.string.isRequired,
         dateOfBirth: PropTypes.string.isRequired,

@@ -27,14 +27,14 @@
 //             //     {
 //             //         id: 3,
 //             //         path: "/news",
-//             //         pageName: 'News',
+//             //         pageName: 'ProfileTop',
 //             //         iconSrc: newsImg,
 //             //         iconAlt: 'Icon new'
 //             //     },
 //             //     {
 //             //         id: 4,
 //             //         path: "/music",
-//             //         pageName: 'FriendsList',
+//             //         pageName: 'Members',
 //             //         iconSrc: musicImg,
 //             //         iconAlt: 'Icon music'
 //             //     },
@@ -48,7 +48,7 @@
 //             //     }
 //             // ],
 //             // sideBarPage: {
-//             //     sideBarTitle: 'FriendsList',
+//             //     sideBarTitle: 'Members',
 //             //     sideBarFriend: [
 //             //         {
 //             //             id: 1,

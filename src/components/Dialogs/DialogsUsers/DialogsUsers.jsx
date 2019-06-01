@@ -1,18 +1,19 @@
 import React from 'react';
 import style from './DialogsUsers.module.scss';
-import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 
 
-const DialogsUsers = ({dialogsUsers}) => {
-    const dialogItem = dialogsUsers.map((elem) =>
+const DialogsUsers = ({users, iconUserSrc, altImg}) => {
+
+    const dialogItem = users.map((elem) =>
         <div key={elem.id} className={style.userItem}>
             <div className={style.userAvatar}>
-                <img src={elem.userImg} alt={elem.userAlt}/>
+                {/*<img src={elem.userImg} alt={elem.userAlt}/>*/}
+                {elem.photos.small ? <img src={elem.photos.small} alt={altImg}/> : <img src={iconUserSrc} alt={altImg}/>}
             </div>
-            <NavLink to={elem.path} activeClassName={style.active}>
+            <div>
                 <span className={style.userFrom}>from:</span>
-                {elem.userName}</NavLink>
+                {elem.name}</div>
         </div>);
 
     return (

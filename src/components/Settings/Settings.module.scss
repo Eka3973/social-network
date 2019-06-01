@@ -1,4 +1,10 @@
+@import "../../variables";
+
 .settingsWrapper {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-right: 1px solid $light-gray;
     width: 500px;
     height: 500px;
     background-color: hotpink;
