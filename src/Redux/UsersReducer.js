@@ -1,5 +1,5 @@
 import iconUserImg from "../images/user.svg";
-import {getUsers, getSubscribe, getUnsubscribe} from "../DAL/samuraiAPI";
+import api from "../DAL/samuraiAPI";
 
 export const SET_USERS = 'SN/USERS/SET_USERS';
 export const UNSUBSCRIBE = 'SN/USERS/UNSUBSCRIBE';
@@ -41,7 +41,8 @@ const usersReducer = (state = initialState, action) => {
 
 export const setUsers = (users) => {
     return dispatch => {
-        getUsers(users).then(res => {
+        api.getUsers(users)
+            .then(res => {
                 dispatch(setUsersAC(res));
             }
         );
@@ -51,7 +52,7 @@ export const setUsers = (users) => {
 
 export const subscribe = (userId) => {
     return dispatch => {
-        getSubscribe(userId)
+        api.getSubscribe(userId)
             .then(res => {
             dispatch(subscribeAC(res));
         })
@@ -65,7 +66,7 @@ export const subscribe = (userId) => {
 
 export const unsubscribe = (userId) => {
     return dispatch => {
-        getUnsubscribe(userId).then(res => {
+        api.getUnsubscribe(userId).then(res => {
             dispatch(unsubscribeAC(res))
         })
     }

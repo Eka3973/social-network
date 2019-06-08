@@ -7,7 +7,7 @@ const Posts = ({posts}) => {
         <div key={elem.id} className={style.PostItem}>
             <div className={style.PostItemImg}>
                 <img
-                    src={elem.photo}
+                    src={elem.postImg}
                     alt={elem.postAlt}/>
             </div>
             <div className={style.PostItemMessage}>

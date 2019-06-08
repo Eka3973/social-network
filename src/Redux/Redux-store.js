@@ -7,8 +7,8 @@ import loginReducer from "./LoginReducer";
 import thunk from "redux-thunk";
 import authReducer from "./AuthReducer";
 import headerReducer from "./HeaderReducer";
-import PageChangePhotoReducer from "./PageChangePhotoReducer";
-
+import settingReducer from "./SettingReducer";
+import { reducer as formReducer } from 'redux-form';
 
 
 const reducers = combineReducers({
@@ -19,10 +19,9 @@ const reducers = combineReducers({
     loginPage: loginReducer,
     auth: authReducer,
     headerPage: headerReducer,
-    PageChangePhotoPage: PageChangePhotoReducer
-
+    settingPage: settingReducer,
+    form: formReducer
 
 });
 const store = createStore(reducers, applyMiddleware(thunk));
-
 export default store;

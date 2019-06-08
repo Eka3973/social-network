@@ -1,7 +1,8 @@
 import {me, setIsAuth} from "./AuthReducer";
-import {makeLogin} from "../DAL/samuraiAPI";
 import {setUsers} from "./UsersReducer";
 import {setProfileId} from "./ProfileReducer";
+import api from "../DAL/samuraiAPI";
+import {setProfileStatus} from "./SettingReducer";
 
 
 
@@ -49,18 +50,16 @@ export const loginUp = (login, password, rememberMe) => {
     return dispatch => {
         setStatus(statuses.INPROGRESS);
         //запуск крутилки
-        makeLogin(login, password, rememberMe)
+        api.makeLogin(login, password, rememberMe)
        .then(async res => {
             if (res.data.resultCode === 0) {
-                dispatch(setStatus(statuses.SUCCESS));
-                dispatch(setIsAuth(true));
-
+                await dispatch(setStatus(statuses.SUCCESS));
+                await dispatch(setIsAuth(true));
                 await dispatch(me());
-                dispatch(setProfileId());
-                dispatch(setUsers());
-                dispatch(isLogin());
-
-
+                await dispatch(setProfileId());
+                await dispatch(setProfileStatus());
+                await dispatch(setUsers());
+                await dispatch(isLogin());
                 // disable крутилку
             } else {
                 dispatch(setStatus(statuses.ERROR));

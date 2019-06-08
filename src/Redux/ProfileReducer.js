@@ -1,9 +1,12 @@
 import profileHeaderImg from "../images/profileHeaderImg.jpg";
+import manWithGitara from "../images/muzhchina-muzyka-gitara.jpg";
 
 import api from "../DAL/samuraiAPI";
 
 export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
 const SET_AUTH_FULL_PROFILE = 'SN/AUTH/SET_AUTH_FULL_PROFILE';
+const CHANGE_PROFILE_PHOTO = 'SW/PAGE_CHANGE_PHOTO/CHANGE_PROFILE_PHOTO';
+
 
 const initialState = {
     profileHeader: {
@@ -24,18 +27,12 @@ const initialState = {
             'New York University',
         Twitter:
             'https://twitter.com/BuddyBossWP'
-    }
-    ,
-    myPosts: {
-        titlePost: 'My posts',
-        placeholderPost:
-            'Your news...'
-    }
-    ,
+    },
+
     posts: [
         {
             id: 1,
-            postImg: 'https://avatarko.ru/img/avatar/18/muzhchina_muzyka_gitara_17753.jpg',
+            postImg: manWithGitara,
             postAlt: 'Profile picture of Jon Greene',
             name: 'Curtis Lynch',
             itemPost: 'How do you plan to integrate this in your upcoming strategy?',
@@ -61,7 +58,10 @@ const initialState = {
             counter: 38
         }],
     photo: null,
-    fullName:''
+    fullName: null,
+    aboutMe: null,
+    previewImage: null,
+    file: null,
 
 
 };
@@ -71,17 +71,23 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_AUTH_FULL_PROFILE: {
-            return {...state,
+            return {
+                ...state,
                 photo: action.photo,
-                fullName: action.fullName
+                fullName: action.fullName,
+                aboutMe: action.aboutMe
 
             };
         }
+
+        case CHANGE_PROFILE_PHOTO:
+            return {...state, previewImage: action.previewImage, file: action.file};
+
         case ADD_MY_POST:
             if (!!action.post.trim()) {
                 let addPost = {
                     id: 4,
-                    postImg: state.description.descriptionImg,
+                    postImg: state.photo,
                     postAlt: state.description.descriptionAlt,
                     name: state.description.userName,
                     itemPost: action.post,
@@ -105,14 +111,42 @@ export const setProfileId = () => {
         let userId = getState().auth.userInfo.userId;
         api.getFullUserProfile(userId)
             .then(res => {
-                dispatch(setAuthAvatar(res.data.photos.small, res.data.fullName))
+                console.log(res.data.fullName)
+                dispatch(setAuthProfile(
+                    res.data.photos.small,
+                    res.data.fullName,
+                    res.data.aboutMe
+                ))
             })
     }
 };
 
+export const setImageChange = file => {
+    return dispatch => {
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            dispatch(imageChange(reader.result, file));
+        };
+        reader.readAsDataURL(file);
 
-export const addPost = (addedPost) =>({type: ADD_MY_POST, post: addedPost});
-export const setAuthAvatar = (photo, fullName) => ({type: SET_AUTH_FULL_PROFILE, photo, fullName});
+    };
+};
+
+
+export const setUrlPhotoToProfile = (file) => {
+    return dispatch => {
+        api.getChangePhoto(file)
+            .then(res => {
+                dispatch(setProfileId());
+
+            });
+    }
+};
+
+
+export const addPost = (addedPost) => ({type: ADD_MY_POST, post: addedPost});
+export const setAuthProfile = (photo, fullName, aboutMe) => ({type: SET_AUTH_FULL_PROFILE, photo, fullName, aboutMe});
+const imageChange = (previewImage, file) => ({type: CHANGE_PROFILE_PHOTO, previewImage, file});
 
 
 export default profileReducer;

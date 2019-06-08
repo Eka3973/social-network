@@ -1,15 +1,15 @@
 import {connect} from "react-redux";
 import PageChangePhoto from "./PageChangePhoto";
-import {setImageChange, setUrlPhotoToProfile} from "../../../../../Redux/PageChangePhotoReducer";
-import {setProfileId} from "../../../../../Redux/ProfileReducer";
+
+import {setImageChange, setProfileId, setUrlPhotoToProfile} from "../../../../../Redux/ProfileReducer";
 
 
 
 const mapStateToProps = (state) => {
 
     return {
-        previewImage: state.PageChangePhotoPage.previewImage,
-        file: state.PageChangePhotoPage.file,
+        previewImage: state.profilePage.previewImage,
+        file: state.profilePage.file,
     }
 };
 

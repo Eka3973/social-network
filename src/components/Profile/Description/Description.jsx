@@ -19,20 +19,21 @@ const Description = ({photo, fullName, description: {descriptionAlt,
                 </div>
                 <div>
                     <div className={style.descriptionUserBiography}>
-                        <span>Date of Birth:</span>
+                        <span>About Me:</span>
                         <span>{dateOfBirth}</span>
                     </div>
                     <div className={style.descriptionUserBiography}>
-                        <span>City:</span>
+                        <span>Looking for a job:</span>
                         <span>{city}</span>
                     </div>
                     <div className={style.descriptionUserBiography}>
-                        <span>Education:</span>
+                        <span>Facebook:</span>
                         <span>{education}</span>
                     </div>
                     <div className={style.descriptionUserBiography}>
                         <span>Twitter:</span>
                         <span>{Twitter}</span>
+
                     </div>
                 </div>
             </div>
@@ -48,7 +49,6 @@ Description.propTypes = {
 
 Description.propTypes = {
     description: PropTypes.shape({
-        userName: PropTypes.string.isRequired,
         niceName: PropTypes.string.isRequired,
         dateOfBirth: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,

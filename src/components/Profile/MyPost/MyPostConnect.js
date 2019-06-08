@@ -3,13 +3,7 @@ import {connect} from "react-redux";
 import MyPost from "./MyPost";
 
 
-const mapStateToProps = (state) => {
 
-    return {
-        myPosts: state.profilePage.myPosts,
 
-    }
-};
-
-const ConnectedMyPostsPage = connect(mapStateToProps, {addPost})(MyPost);
+const ConnectedMyPostsPage = connect(null, {addPost})(MyPost);
 export default ConnectedMyPostsPage;

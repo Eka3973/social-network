@@ -5,7 +5,8 @@ const mapStateToProps =(state)=> {
     return {
         description: state.profilePage.description,
         photo: state.profilePage.photo,
-        fullName: state.profilePage.fullName,
+        fullName: state.profilePage.fullName
+
     }
 };
 const ConnectedDescription = connect(mapStateToProps)(Description);

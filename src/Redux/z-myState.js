@@ -41,7 +41,7 @@
 //             //     {
 //             //         id: 5,
 //             //         path: "/settings",
-//             //         pageName: 'Settings',
+//             //         pageName: 'ChangeStatus',
 //             //         iconSrc: settingsImg,
 //             //         iconAlt: 'Icon  settings'
 //             //

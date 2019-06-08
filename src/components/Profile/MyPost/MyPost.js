@@ -1,39 +1,42 @@
-import React, {useState} from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import style from "./MyPost.module.scss";
+import {Field, reduxForm} from "redux-form";
 
-const MyPost = ({addPost, myPosts: {titlePost, placeholderPost}}) => {
-    const [postText, setPost] = useState('');
+const MyPost = ({addPost}) => {
 
+    const addText = values => {
 
-    const onPostChange = (e) => {
-        e.preventDefault();
-        setPost(e.currentTarget.value);
+        addPost(values.post);
+        // setPost("");
     };
-
-    const addText = (e) => {
-        e.preventDefault();
-        addPost(postText);
-        setPost("");
-    };
-
     return (
         <div className={style.myPostWrapper}>
-            <div className={style.myPost}>
-                <h2>{titlePost}</h2>
-                <textarea onChange={onPostChange}
-                          placeholder={placeholderPost}
-                          value={postText}/>
-                <button type='button' onClick={addText}>Add post</button>
-            </div>
+            <h2>My posts</h2>
+            <MyPostReduxForm onSubmit={addText} placeholder='Your news...'/>
         </div>)
 };
 export default MyPost;
 
-MyPost.propTypes = {
-    addPost: PropTypes.func.isRequired,
-    myPosts: PropTypes.shape({
-        titlePost: PropTypes.string.isRequired,
-        placeholderPost: PropTypes.string.isRequired
-    })
+
+const MyPostForm = (props) => {
+
+    return (
+        <form onSubmit={props.handleSubmit} className={style.form}>
+            <Field component={Textarea} name='post' placeholder={props.placeholder}/>
+            <button type="submit" className={style.button}>Add post</button>
+        </form>
+    )
 };
+
+const MyPostReduxForm = reduxForm({form: 'my-post-form'})(MyPostForm);
+
+
+const Textarea = (input, meta, ...props) => {
+    return (
+        <div>
+            <textarea  {...props} {...input} className={style.textArea}/>
+        </div>
+    )
+};
+
+
