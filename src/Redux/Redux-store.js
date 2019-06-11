@@ -9,6 +9,7 @@ import authReducer from "./AuthReducer";
 import headerReducer from "./HeaderReducer";
 import settingReducer from "./SettingReducer";
 import { reducer as formReducer } from 'redux-form';
+import {composeWithDevTools} from "redux-devtools-extension";
 
 
 const reducers = combineReducers({
@@ -23,5 +24,5 @@ const reducers = combineReducers({
     form: formReducer
 
 });
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 export default store;

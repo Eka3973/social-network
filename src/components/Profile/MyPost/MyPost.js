@@ -5,9 +5,8 @@ import {Field, reduxForm} from "redux-form";
 const MyPost = ({addPost}) => {
 
     const addText = values => {
-
         addPost(values.post);
-        // setPost("");
+
     };
     return (
         <div className={style.myPostWrapper}>
@@ -15,6 +14,7 @@ const MyPost = ({addPost}) => {
             <MyPostReduxForm onSubmit={addText} placeholder='Your news...'/>
         </div>)
 };
+
 export default MyPost;
 
 
@@ -22,7 +22,7 @@ const MyPostForm = (props) => {
 
     return (
         <form onSubmit={props.handleSubmit} className={style.form}>
-            <Field component={Textarea} name='post' placeholder={props.placeholder}/>
+            <Field component={TextArea} type='text' name='post' placeholder={props.placeholder}/>
             <button type="submit" className={style.button}>Add post</button>
         </form>
     )
@@ -31,12 +31,14 @@ const MyPostForm = (props) => {
 const MyPostReduxForm = reduxForm({form: 'my-post-form'})(MyPostForm);
 
 
-const Textarea = (input, meta, ...props) => {
+const TextArea = ({input, ...props}) => {
     return (
         <div>
-            <textarea  {...props} {...input} className={style.textArea}/>
+            <textarea  {...input} {...props}  className={style.textArea}/>
         </div>
     )
 };
+
+
 
 

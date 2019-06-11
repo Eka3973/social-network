@@ -4,6 +4,5 @@ import MyPost from "./MyPost";
 
 
 
-
 const ConnectedMyPostsPage = connect(null, {addPost})(MyPost);
 export default ConnectedMyPostsPage;

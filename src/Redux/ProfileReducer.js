@@ -84,7 +84,7 @@ const profileReducer = (state = initialState, action) => {
             return {...state, previewImage: action.previewImage, file: action.file};
 
         case ADD_MY_POST:
-            if (!!action.post.trim()) {
+            //if (!!action.post.trim()) {
                 let addPost = {
                     id: 4,
                     postImg: state.photo,
@@ -98,8 +98,8 @@ const profileReducer = (state = initialState, action) => {
                     ...state,
                     posts: [addPost, ...state.posts]
                 };
-            }
-            return state;
+           // }
+            //return state;
 
         default:
             return state;
@@ -111,7 +111,7 @@ export const setProfileId = () => {
         let userId = getState().auth.userInfo.userId;
         api.getFullUserProfile(userId)
             .then(res => {
-                console.log(res.data.fullName)
+                console.log(res.data.fullName);
                 dispatch(setAuthProfile(
                     res.data.photos.small,
                     res.data.fullName,
