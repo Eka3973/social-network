@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Dialogs.module.scss';
 import ConnectedDialogsUsers from "./DialogsUsers/DialogsUsersConnect";
 import ConnectedMessage from "./Messages/MessagesConnect";
-import ConnectedAddMessage from "./AddMessage/AddMessageConnect";
+import ConnectedAddMessage from "../../Forms/AddMessage/AddMessageConnect";
 
 const Dialogs = () => {
 

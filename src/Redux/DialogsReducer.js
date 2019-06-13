@@ -1,3 +1,5 @@
+import {reset} from "redux-form";
+
 export const ADD_MESSAGE = 'SW/MESSAGE/ADD_MESSAGE';
 
 const initialState = {
@@ -27,8 +29,8 @@ const initialState = {
     addMyMessage: {
         myImg: 'https://avatarko.ru/img/avatar/4/devushka_brunetka_3755.jpg',
         myImgAlt: 'Profile picture of Jill Smith',
-    },
-    placeholderMessage: 'Your message...',
+    }
+
 
 };
 
@@ -37,24 +39,29 @@ const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_MESSAGE:
-            if (action.comment.trim() !== '') {
-                let addMessage = {
-                    id: 4,
-                    userImg: state.addMyMessage.myImg,
-                    userAlt: state.addMyMessage.myImgAlt,
-                    userMessage: action.comment
-                };
-                return {
-                    ...state,
-                    messages: [...state.messages, addMessage]
-                };
-            }
-            return state;
+            let addMessage = {
+                id: 4,
+                userImg: state.addMyMessage.myImg,
+                userAlt: state.addMyMessage.myImgAlt,
+                userMessage: action.comment
+            };
+            return {
+                ...state,
+                messages: [...state.messages, addMessage]
+            };
 
         default:
             return state;
     }
 };
+
+export const clearForm = () => {
+    return dispatch => {
+        dispatch(reset('my-message'))
+    }
+};
+
+
 export const addMessage = (addedMessage) =>
     ({type: ADD_MESSAGE, comment: addedMessage});
 

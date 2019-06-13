@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./ProfileImg.module.scss";
-import ConnectedProfileStatus from "./ProfileStatus/ProfileStatusConnect";
+import ConnectedProfileStatus from "../../../Forms/ProfileStatus/ProfileStatusConnect";
 
 
 

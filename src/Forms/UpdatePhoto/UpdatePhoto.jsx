@@ -1,11 +1,9 @@
 import React from 'react';
-import style from './PageChangePhoto.module.scss';
+import style from './UpdatePhoto.module.scss';
 
 
 
-
-
-const PageChangePhoto = ({setImageChange, previewImage, file, setProfileId, setUrlPhotoToProfile}) => {
+const UpdatePhoto = ({setImageChange, previewImage, file, setProfileId, setUrlPhotoToProfile}) => {
 
     const handleImageChange = (e) => {
         e.preventDefault();
@@ -14,12 +12,10 @@ const PageChangePhoto = ({setImageChange, previewImage, file, setProfileId, setU
 
 
     const handleSubmit = e => {
-    e.preventDefault();
+        e.preventDefault();
         setUrlPhotoToProfile(file);
-
-
-
     };
+
     return (
         <div className={style.newsWrapper}>
             <h3>Change Profile Photo</h3>
@@ -30,7 +26,7 @@ const PageChangePhoto = ({setImageChange, previewImage, file, setProfileId, setU
             </div>
 
             <form className={style.form} onSubmit={handleSubmit}>
-              <img className={style.previewImage} src={previewImage} alt=''/>
+                <img className={style.previewImage} src={previewImage} alt=''/>
                 <input className={style.input}
                        type='file'
                        onChange={handleImageChange}
@@ -44,7 +40,7 @@ const PageChangePhoto = ({setImageChange, previewImage, file, setProfileId, setU
         </div>
     )
 
-}
+};
 
-export default PageChangePhoto;
 
+export default UpdatePhoto;

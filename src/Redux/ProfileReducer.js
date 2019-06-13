@@ -1,6 +1,6 @@
 import profileHeaderImg from "../images/profileHeaderImg.jpg";
 import manWithGitara from "../images/muzhchina-muzyka-gitara.jpg";
-
+import {reset} from 'redux-form';
 import api from "../DAL/samuraiAPI";
 
 export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
@@ -84,7 +84,6 @@ const profileReducer = (state = initialState, action) => {
             return {...state, previewImage: action.previewImage, file: action.file};
 
         case ADD_MY_POST:
-            //if (!!action.post.trim()) {
                 let addPost = {
                     id: 4,
                     postImg: state.photo,
@@ -98,8 +97,6 @@ const profileReducer = (state = initialState, action) => {
                     ...state,
                     posts: [addPost, ...state.posts]
                 };
-           // }
-            //return state;
 
         default:
             return state;
@@ -111,11 +108,11 @@ export const setProfileId = () => {
         let userId = getState().auth.userInfo.userId;
         api.getFullUserProfile(userId)
             .then(res => {
-                console.log(res.data.fullName);
                 dispatch(setAuthProfile(
                     res.data.photos.small,
                     res.data.fullName,
                     res.data.aboutMe
+
                 ))
             })
     }
@@ -141,6 +138,11 @@ export const setUrlPhotoToProfile = (file) => {
 
             });
     }
+};
+
+ export const clearForm = () => {
+     return dispatch => {
+    dispatch(reset('my-post-form'))}
 };
 
 

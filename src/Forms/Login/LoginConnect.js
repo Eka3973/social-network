@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import LoginContainer from "./LoginContainer";
+import Login from "./Login";
 import {loginUp} from "../../Redux/LoginReducer";
 
 
@@ -12,5 +12,5 @@ const mapStateToProps = (state) => {
         // captchaUrl: state.login.captchaUrl
     }
 };
-const ConnectedLogin = connect(mapStateToProps, {loginUp})(LoginContainer);
+const ConnectedLogin = connect(mapStateToProps, {loginUp})(Login);
 export default ConnectedLogin;

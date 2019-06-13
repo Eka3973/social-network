@@ -1,4 +1,6 @@
-@import "../../../../../variables";
+@import "../../variables";
+@import "../../mixin";
+
 .newsWrapper {
     grid-row-start: 2;
     grid-column-start: 2;
@@ -46,25 +48,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 40px;
-    background: $light-blue;
-    border: none;
-    border-radius: 4px;
-    color: $white;
-    font-size: 16px;
     margin: 10px 0;
+    @include button-large;
 
 }
 .uploadButton{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 40px;
-    background: $light-blue;
-    border: none;
-    border-radius: 4px;
-    color: $white;
-    font-size: 16px;
+    @include button-large;
 }

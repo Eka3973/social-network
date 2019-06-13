@@ -4,7 +4,7 @@ import api from "../DAL/samuraiAPI";
 const ADD_STATUS = 'SW/PROFILE/ADD_STATUS';
 
 const initialState = {
-    status: null
+    status: ''
 };
 
 

@@ -1,5 +1,5 @@
-@import "../../../../variables";
-@import "../../../../mixin";
+@import "../../variables";
+@import "../../mixin";
 //outline: 1px solid red;
 
 .wrapper {
@@ -12,7 +12,7 @@
     border: none;
     cursor: pointer;
     color: white;
-    width: 250px;
+    width: 300px;
     font-size: 16px;
     font-weight: bolder;
     text-transform: none;

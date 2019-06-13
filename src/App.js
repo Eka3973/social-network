@@ -5,13 +5,13 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import {Route} from "react-router-dom";
 import ConnectedNavbarPage from "./components/Navbar/NavbarConnect";
-import ConnectedLogin from "./components/Login/LoginConnect";
+import ConnectedLogin from "./Forms/Login/LoginConnect";
 import ConnectedMembers from "./components/Members/MembersConnect";
 import ConnectedFollowers from "./components/Following/FollowersConnect";
 import ConnectedFriends from "./components/Friends/FriendsConnect";
 import ConnectedProfile from "./components/Profile/ProfileConnect";
 import News from "./components/News/News";
-import ConnectedMyPostsPage from "./components/Header/HeaderInner/HeaderProfile/PageChangePhoto/PageChangePhotoConnect";
+import ConnectedMyPostsPage from "./Forms/UpdatePhoto/UpdatePhotoConnect";
 import ConnectedSetting from "./components/Settings/SettingsConnect";
 
 
