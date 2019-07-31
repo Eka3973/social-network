@@ -1,12 +1,12 @@
 import {connect} from "react-redux";
 import Profile from "./Profile";
-import {saveNewStatus} from "../../Redux/SettingReducer";
+import {saveNewStatus} from "../../Redux/StatusReducer";
 
 
 const mapStateToProps = (state:any) => {
     return {
         isAuth: state.auth.isAuth,
-        status:state.settingPage.status
+        status:state.statusPage.status
     }
 };
 

@@ -1,37 +1,37 @@
 import iconUserImg from "../images/user.svg";
 import api from "../DAL/samuraiAPI";
+import {IuserAction, IuserId, Iusers, IUsersTypes, SET_USERS, SUBSCRIBE, UNSUBSCRIBE} from "../Types/TypesUsers";
+import {Dispatch} from "redux";
 
 
-export const SET_USERS = 'SN/USERS/SET_USERS';
-export const UNSUBSCRIBE = 'SN/USERS/UNSUBSCRIBE';
-export const SUBSCRIBE = 'SN/USERS/SUBSCRIBE';
+const setUsersAC = (users: Iusers) => ({type: SET_USERS, users});
+const subscribeAC = (userId: IuserId) => ({type: SUBSCRIBE, userId});
+const unsubscribeAC = (userId: IuserId) => ({type: UNSUBSCRIBE, userId});
 
 
-const initialState = {
+const initialState: IUsersTypes = {
     users: [],
     iconUserSrc: iconUserImg,
     altImg: 'User Avatar',
-    path: '/users',
+    path: '/users'
 };
 
-const usersReducer = (state = initialState, action: any) => {
-    let copy;
-    let user: any;
+const usersReducer = (state = initialState, action: IuserAction) => {
+
     switch (action.type) {
         case SET_USERS:
             return {...state, users: action.users};
 
         case UNSUBSCRIBE: {
-            copy = {...state, users: [...state.users]};
-            user = copy.users.find((elem: any) => elem.id === action.userId);
+            const copy = {...state, users: [...state.users]};
+            const user: any = copy.users.find((elem: any) => elem.id === action.userId);
             user.followed = false;
             return copy;
         }
         case SUBSCRIBE: {
-            copy = {...state, users: [...state.users]};
-            user = copy.users.find((elem: any) => elem.id === action.userId);
+            const copy = {...state, users: [...state.users]};
+            const user: any = copy.users.find((elem: any) => elem.id === action.userId);
             user.followed = true;
-            user.friend = true;
             return copy;
         }
         default:
@@ -40,42 +40,37 @@ const usersReducer = (state = initialState, action: any) => {
 };
 
 export const getUsers = () => {
-    return (dispatch: Function) => {
+    return (dispatch: Dispatch) => {
         api.setUsers()
-            .then((items: any) => {
-                dispatch(setUsersAC(items));
-            }
-        );
+            .then((users) => {
+                    dispatch(setUsersAC(users));
+                }
+            );
     };
 };
 
 
-export const subscribe = (userId: any) => {
-    return (dispatch: Function) => {
+export const subscribe = (userId:IuserId) => {
+    return (dispatch: Dispatch) => {
         api.setSubscribe(userId)
-            .then((userId: any) => {
-            dispatch(subscribeAC(userId));
-        })
-            .catch((res: any) => {
-                if (res.response.status === 401) {
-                    alert("No access rights. Please log in.")
-                }
+            .then((userId) => {
+                dispatch(subscribeAC(userId));
+            })
+            // .catch((res) => {
+            //     if (res.response.status === 401) {
+            //         alert("No access rights. Please log in.")
+            //     }
+            // })
+    }
+};
+
+export const unsubscribe = (userId:IuserId) => {
+    return (dispatch: Dispatch) => {
+        api.setUnsubscribe(userId)
+            .then((userId) => {
+                dispatch(unsubscribeAC(userId))
             })
     }
 };
-
-export const unsubscribe = (userId: any) => {
-    return (dispatch: Function) => {
-        api.setUnsubscribe(userId)
-            .then((userId: any) => {
-            dispatch(unsubscribeAC(userId))
-        })
-    }
-};
-
-const setUsersAC = (users:any) => ({type: SET_USERS, users});
-const subscribeAC = (userId: any) => ({type: SUBSCRIBE, userId});
-const unsubscribeAC = (userId: any) => ({type: UNSUBSCRIBE, userId});
-
 
 export default usersReducer;

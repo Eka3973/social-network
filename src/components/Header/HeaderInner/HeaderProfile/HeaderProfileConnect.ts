@@ -1,14 +1,15 @@
 import {connect} from "react-redux";
 import HeaderProfile from "./HeaderProfile";
 import {logOut, me,} from "../../../../Redux/AuthReducer";
+import {AppState} from "../../../../Redux/Redux-store";
 
 
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
     return {
-        userInfo: state.auth.userInfo,
+        fullName: state.profilePage.fullProfile.fullName,
         isAuth: state.auth.isAuth,
-        photo: state.profilePage.photo
+        photo: state.profilePage.fullProfile.photo
     }
 };
 

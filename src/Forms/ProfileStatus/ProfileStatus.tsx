@@ -1,6 +1,8 @@
-import React, {FormEvent, useState} from 'react';
+import React, {useState} from 'react';
 import style from "./ProfileStatus.module.scss";
 import {Field, reduxForm} from "redux-form";
+
+
 
 interface ProfileStatus {
     saveNewStatus: Function,
@@ -24,7 +26,7 @@ const ProfileStatus = ({saveNewStatus, initialValues}: ProfileStatus) => {
         showForm(!isHidden)
     };
 
-    const formForChangeStatus = !!isHidden &&
+    const formForChangeStatus = isHidden &&
         <FormStatusConnect onSubmit={addStatus} initialValues={{status: initialValues}}/>;
 
     return (
@@ -70,5 +72,6 @@ const TextArea = ({input, ...props}:TextArea) => {
         <div>
             <textarea {...input}  {...props} />
         </div>
+
     )
 };

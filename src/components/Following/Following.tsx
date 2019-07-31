@@ -6,14 +6,11 @@ interface IProps {
     altImg: string;
     iconUserSrc: string;
     unsubscribe: Function;
-    subscribe: Function;
 }
 
-const Followers = ({users, altImg, iconUserSrc, unsubscribe, subscribe} : IProps) => {
-    const Subscribe = (e:any) => {
-        const clickedSubscribe = e.target;
-        subscribe(+clickedSubscribe.dataset.userId);
-    };
+const Followers = ({users, altImg, iconUserSrc, unsubscribe} : IProps) => {
+
+
 
     const unSubscribe = (e: any) => {
         const clickedUnsubscribe = e.target;
@@ -35,8 +32,7 @@ const Followers = ({users, altImg, iconUserSrc, unsubscribe, subscribe} : IProps
                 </div>
             </div>
             <div className={style.buttons}>
-                <button className={style.buttonCancel} data-user-id={elem.id} onClick={Subscribe}>Add friend</button>
-                    <button className={style.buttonFollower} data-user-id={elem.id} onClick={unSubscribe}>Unsubscribe</button>
+                <button className={style.buttonFollower} data-user-id={elem.id} onClick={unSubscribe}>Unsubscribe</button>
             </div>
         </div>);
     return(

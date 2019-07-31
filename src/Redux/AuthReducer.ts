@@ -1,38 +1,36 @@
 import api from "../DAL/samuraiAPI";
+import {AuthActionType, IAuthType, SET_IS_AUTH, SET_USER_INFO} from "../Types/TypesAuth";
+import {Dispatch} from "redux";
 
 
-const SET_IS_AUTH = 'SN/AUTH/SET_IS_AUTH';
-const SET_USER_INFO = 'SN/AUTH/SET_USER_INFO';
 
 
+export const setIsAuth = (isAuth: any)=> ({type: SET_IS_AUTH,  isAuth});
+export const setUserInfo = (userId: any) => ({type: SET_USER_INFO, userId});
 
-let initialState = {
+
+let initialState: IAuthType = {
     isAuth: false,
     userInfo: {
-        userId: '',
-        userName: ''
-
+        userId: null
     }
-
 };
 
-const AuthReducer = (state = initialState, action: any) => {
+const AuthReducer = (state = initialState, action: AuthActionType)=> {
 
     switch (action.type) {
         case SET_IS_AUTH: {
-            return {...state, isAuth: action.value};
+            return {...state, isAuth: action.isAuth};
         }
         case SET_USER_INFO: {
             return {
                 ...state,
-                userInfo: {
+                userInfo:  {
                     ...state.userInfo,
-                    userId: action.userId,
-                    userName: action.userName
+                    userId: action.userId
                 }
             };
         }
-
         default:
             return state;
     }
@@ -41,11 +39,11 @@ export default AuthReducer;
 
 
 export const me = () => {
-    return (dispatch: Function) => {
+    return (dispatch: Dispatch) => {
         return api.setMe()
-            .then((data: any) => {
+            .then((data) => {
                 if (data.resultCode === 0) {
-                    dispatch(setUserInfo(data.data.id, data.data.login));
+                    dispatch(setUserInfo(data.data.id));
                 }
             });
     }
@@ -54,12 +52,12 @@ export const me = () => {
 
 
 export const logOut = () => {
-    return (dispatch: Function) => {
+    return (dispatch: any) => {
         api.setLogout()
-            .then((resultCode: any) => {
+            .then((resultCode) => {
                     if (resultCode === 0) {
                         dispatch(setIsAuth(false));
-                        dispatch(setUserInfo(null, ''));
+                        dispatch(setUserInfo(null));
                     }
                 }
             )
@@ -67,7 +65,6 @@ export const logOut = () => {
 };
 
 
-export const setIsAuth = (value: boolean) => ({type: SET_IS_AUTH, value});
-export const setUserInfo = (userId: number | null, userName: string) => ({type: SET_USER_INFO, userId, userName});
+
 
 

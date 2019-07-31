@@ -1,16 +1,18 @@
-import React, {FormEvent} from 'react';
+import React from 'react';
 import style from './Login.module.scss';
 import {statuses} from "../../Redux/LoginReducer";
 import {Redirect} from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
+import {ILoginForm} from "../../Types/TypesLogin";
 
 interface ILogin {
     loginUp: Function,
-    status: string,
-    isAuth: any,
-    message: string
+    status: any,
+    isAuth: boolean,
+    message: []
 
 }
+
 
 const Login = ({loginUp, status, isAuth, message}: ILogin) => {
 
@@ -22,7 +24,7 @@ const Login = ({loginUp, status, isAuth, message}: ILogin) => {
         )
     };
 
-    if (isAuth === true) {
+    if (isAuth) {
         return <Redirect to='/profile'/>
     }
     const errorMessageBlock = status === statuses.ERROR &&
@@ -34,20 +36,14 @@ const Login = ({loginUp, status, isAuth, message}: ILogin) => {
             <LoginFormConnect onSubmit={sendLogin} status={status}/>
             {errorMessageBlock}
         </div>
-
-
     )
 };
-
 export default Login;
 
-interface ILoginForm {
-    handleSubmit: (e: FormEvent<HTMLFormElement>) => void | null,
-    submitting: boolean
-}
 
 
-const LoginForm = ({handleSubmit, submitting}: ILoginForm) => {
+
+const LoginForm = ({handleSubmit, submitting}: InjectedFormProps<ILoginForm>) => {
     return (
         <form onSubmit={handleSubmit} className={style.form}>
             <Field component={LoginInput}
@@ -76,10 +72,10 @@ const LoginForm = ({handleSubmit, submitting}: ILoginForm) => {
 };
 
 
-const LoginFormConnect: any = reduxForm({form: 'login-form'})(LoginForm);
+const LoginFormConnect: any = reduxForm<ILoginForm>({form: 'login-form'})(LoginForm);
 
 interface ITextArea {
-    input: any,
+    input: object,
     meta: any,
 
 }

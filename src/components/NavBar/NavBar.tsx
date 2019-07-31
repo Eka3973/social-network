@@ -1,14 +1,15 @@
 import React from 'react';
-import style from './Navbar.module.scss';
+import style from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
+import {InavBar} from "../../Types/TypesNavBar";
 
 interface IProps {
-    navBarPage: any;
+    navBarPage: InavBar[];
 }
 
 
-const Navbar = ({navBarPage}:IProps) => {
-    const menuItem = navBarPage.map((elem:any) =>
+const NavBar = ({navBarPage}:IProps) => {
+    const menuItem = navBarPage.map((elem) =>
         <NavLink key={elem.id} to={elem.path} className={style.navLink}>
             <div className={style.navItem}>
                 <div className={style.item}>
@@ -28,5 +29,5 @@ const Navbar = ({navBarPage}:IProps) => {
         </div>
     )
 };
-export default Navbar;
+export default NavBar;
 

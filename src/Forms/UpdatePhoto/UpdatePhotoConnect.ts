@@ -4,7 +4,6 @@ import UpdatePhoto from "./UpdatePhoto";
 import {setImageChange, getUserProfile, getUrlPhotoToProfile} from "../../Redux/ProfileReducer";
 
 
-
 const mapStateToProps = (state: any) => {
 
     return {
@@ -13,5 +12,10 @@ const mapStateToProps = (state: any) => {
     }
 };
 
-const ConnectedMyPostsPage = connect(mapStateToProps, {setImageChange, getUrlPhotoToProfile, getUserProfile})(UpdatePhoto);
-export default ConnectedMyPostsPage;
+const ConnectedChangePhotoProfile = connect(mapStateToProps,
+    {
+        setImageChange, getUrlPhotoToProfile,
+        getUserProfile
+    })(UpdatePhoto);
+
+export default ConnectedChangePhotoProfile;

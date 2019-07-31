@@ -2,54 +2,44 @@ import React from 'react';
 import style from "./Description.module.scss";
 
 interface IProps {
-    photo: any;
-    fullName: any;
-    descriptionAlt: string;
-    description: any;
-    niceName: string;
-    dateOfBirth: string;
-    city: string;
-    education: string;
-    Twitter: string;
+    aboutMe: string
+    photo: string;
+    fullName: string;
+    lookingForAJob: boolean;
+    lookingForAJobDescription: string;
 }
 
 
 
-const Description = ({photo, fullName, description: {descriptionAlt,
-    niceName, dateOfBirth, city, education, Twitter}}:IProps) => {
+const Description = ({aboutMe, photo, fullName, lookingForAJob, lookingForAJobDescription}:IProps) => {
 
     return (
         <div className={style.descriptionWrapper}>
             <div className={style.descriptionImg}>
                 <img
                     src={photo}
-                    alt={descriptionAlt}/>
+                    alt='User avatar'/>
             </div>
             <div className={style.descriptionUser}>
                 <div>
-                    <h1>{fullName}<span>{niceName}</span></h1>
+                    <h1 className={style.fullName}>{fullName}</h1>
                 </div>
                 <div>
                     <div className={style.descriptionUserBiography}>
                         <span>About Me:</span>
-                        <span>{dateOfBirth}</span>
+                        <span>{aboutMe}</span>
                     </div>
                     <div className={style.descriptionUserBiography}>
                         <span>Looking for a job:</span>
-                        <span>{city}</span>
+                        {lookingForAJob === true? <span>Yes</span>: <span>No</span>}
                     </div>
                     <div className={style.descriptionUserBiography}>
-                        <span>Facebook:</span>
-                        <span>{education}</span>
+                        <span>Job description:</span>
+                        <span>{lookingForAJobDescription}</span>
                     </div>
-                    <div className={style.descriptionUserBiography}>
-                        <span>Twitter:</span>
-                        <span>{Twitter}</span>
-
                     </div>
                 </div>
             </div>
-        </div>
     )
 
 };

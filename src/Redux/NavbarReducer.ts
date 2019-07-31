@@ -3,11 +3,11 @@ import envelopeImg from "../images/envelope.svg";
 import newsImg from "../images/news.svg";
 import musicImg from "../images/music.svg";
 import settingsImg from "../images/settings.svg";
-import friendsImg from "../images/friends.svg";
 import followersImg from "../images/followers.svg";
+import {InavBar} from "../Types/TypesNavBar";
 
-let initialState =
-     [
+let initialState: InavBar[] =
+    [
         {
             id: 1,
             path: "/profile",
@@ -22,22 +22,14 @@ let initialState =
             iconSrc: envelopeImg,
             iconAlt: 'Icon envelope'
         },
-         {
-             id: 3,
-             path: "/friends",
-             pageName: 'Friends',
-             iconSrc: friendsImg,
-             iconAlt: 'Icon friends'
+        {
+            id: 4,
+            path: "/following",
+            pageName: 'Following',
+            iconSrc: followersImg,
+            iconAlt: 'Icon followers'
 
-         },
-         {
-             id: 4,
-             path: "/following",
-             pageName: 'Following',
-             iconSrc: followersImg,
-             iconAlt: 'Icon followers'
-
-         },
+        },
         {
             id: 5,
             path: "/news",
@@ -63,11 +55,11 @@ let initialState =
 
     ]
 ;
-const navbarReducer = (state = initialState, action:any) => {
+const navBarReducer = (state = initialState, action: any) => {
 
     switch (action.type) {
         default:
             return state;
     }
 };
-export default navbarReducer;
+export default navBarReducer;

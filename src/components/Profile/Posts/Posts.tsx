@@ -1,8 +1,9 @@
 import React from 'react';
 import style from "./Posts.module.scss";
 import PropTypes from "prop-types";
+
 interface IPosts {
-    posts:any[],
+    posts: any[],
 }
 
 const Posts = ({posts}:IPosts) => {
@@ -11,7 +12,7 @@ const Posts = ({posts}:IPosts) => {
             <div className={style.PostItemImg}>
                 <img
                     src={elem.postImg}
-                    alt={elem.postAlt}/>
+                    alt='Avatar picture of profile'/>
             </div>
             <div className={style.PostItemMessage}>
                 <span>{elem.name}</span>

@@ -2,14 +2,12 @@ import {me, setIsAuth} from "./AuthReducer";
 import {getUsers} from "./UsersReducer";
 import {getUserProfile} from "./ProfileReducer";
 import api from "../DAL/samuraiAPI";
-import {setProfileStatus} from "./SettingReducer";
+import {setProfileStatus} from "./StatusReducer";
+import {ILoginAction, ILoginForm, ILoginState, SET_MESSAGE, SET_STATUS} from "../Types/TypesLogin";
 
 
-
-
-const SET_STATUS = 'SN/LOGIN/SET_STATUS';
-const SET_MESSAGE = 'SN/LOGIN/SET_MESSAGE';
-
+export const setStatus = (status: any) => ({type: SET_STATUS, status});
+export const setMessage = (message: ILoginState) => ({type: SET_MESSAGE, message});
 
 export const statuses = {
     INIT: 'INIT',
@@ -19,13 +17,13 @@ export const statuses = {
     SUCCESS: 'SUCCES'
 };
 
-let initialState = {
+const initialState: ILoginState = {
     status: statuses.INIT,
-    message: ''
+    message: []
 
 };
 
-const loginReducer = (state = initialState, action: any) => {
+const loginReducer = (state = initialState, action: ILoginAction) => {
 
     switch (action.type) {
         case SET_STATUS: {
@@ -41,7 +39,7 @@ const loginReducer = (state = initialState, action: any) => {
 };
 export default loginReducer;
 
-export const loginUp = (login: string, password: string, rememberMe: boolean) => {
+export const loginUp = (login: ILoginForm, password: ILoginForm, rememberMe: ILoginForm) => {
     return (dispatch: any) => {
         setStatus(statuses.INPROGRESS);
         //запуск крутилки
@@ -66,5 +64,4 @@ export const loginUp = (login: string, password: string, rememberMe: boolean) =>
 
 
 
-export const setStatus = (status: string) => ({type: SET_STATUS, status});
-export const setMessage = (message: string) => ({type: SET_MESSAGE, message});
+
