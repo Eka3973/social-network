@@ -1,7 +1,9 @@
 import React from 'react';
 import style from "./ProfileImg.module.scss";
 import ConnectedProfileStatus from "../../../Forms/ProfileStatus/ProfileStatusConnect";
-import ProfileContacts from "../ProfileContacts/ProfileContacts";
+
+
+
 
 interface IProfileImg {
     profileHeader: any;
@@ -16,7 +18,6 @@ const ProfileImg = ({profileHeader: {profileImg, profileAlt}}: IProfileImg) => {
                      alt={profileAlt}/>
             </div>
             <ConnectedProfileStatus/>
-            <ProfileContacts/>
         </div>
 
     )

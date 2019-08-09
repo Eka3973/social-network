@@ -2,16 +2,12 @@ import React from 'react';
 import style from "./Description.module.scss";
 
 interface IProps {
-    aboutMe: string
-    photo: string;
-    fullName: string;
-    lookingForAJob: boolean;
-    lookingForAJobDescription: string;
+    fullProfile: any,
+    github: string
 }
 
 
-
-const Description = ({aboutMe, photo, fullName, lookingForAJob, lookingForAJobDescription}:IProps) => {
+const Description = ({fullProfile: {aboutMe, photo, fullName, lookingForAJob, lookingForAJobDescription}, github}: IProps) => {
 
     return (
         <div className={style.descriptionWrapper}>
@@ -31,15 +27,20 @@ const Description = ({aboutMe, photo, fullName, lookingForAJob, lookingForAJobDe
                     </div>
                     <div className={style.descriptionUserBiography}>
                         <span>Looking for a job:</span>
-                        {lookingForAJob === true? <span>Yes</span>: <span>No</span>}
+                        {lookingForAJob === true ? <span>Yes</span> : <span>No</span>}
                     </div>
                     <div className={style.descriptionUserBiography}>
                         <span>Job description:</span>
                         <span>{lookingForAJobDescription}</span>
                     </div>
+                    <div className={style.descriptionUserBiography}>
+                        <span>Git Repository:</span>
+                        <a className={style.githubAddress} href={github} target='_blank'>{github}</a>
+
                     </div>
                 </div>
             </div>
+        </div>
     )
 
 };

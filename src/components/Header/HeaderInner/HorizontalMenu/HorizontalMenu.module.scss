@@ -2,8 +2,8 @@
 
 .wrapper {
   display: flex;
-  justify-content: flex-end;
-  width: 700px;
+  justify-content: flex-start;
+  width: 890px;
 
 }
 
@@ -18,9 +18,10 @@
 
 .item {
   text-decoration: none;
-  color: $dark-gray;
+  color: $light-blue;
+
 }
 
 .item:hover {
-  color: $light-blue;
+  color: $dark-gray;
 }

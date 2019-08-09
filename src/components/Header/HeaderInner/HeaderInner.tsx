@@ -2,14 +2,16 @@ import React from "react";
 import style from './HeaderInner.module.scss';
 import ConnectedHeaderProfile from "./HeaderProfile/HeaderProfileConnect";
 import ConnectedHorizontalMenu from "./HorizontalMenu/HorizontalMenuConnect";
-import ConnectedHeaderSearchForm from "./HeaderSearchForm/HeaderSearchFormConnect";
+import ConnectedProfileContacts from "../../Profile/ProfileContacts/ProfileContactsConnect";
 
 
 const HeaderInner = () => {
     return (
-        <div className={style.headerInner}>
-            <ConnectedHeaderSearchForm/>
-            <ConnectedHorizontalMenu/>
+        <div className={style.headerWrapper}>
+            <div className={style.headerInner}>
+                <ConnectedHorizontalMenu/>
+                <ConnectedProfileContacts/>
+            </div>
             <ConnectedHeaderProfile/>
         </div>
     )

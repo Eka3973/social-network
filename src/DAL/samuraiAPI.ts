@@ -5,7 +5,7 @@ import {IStatus} from "../Types/TypesStatus";
 import {ILoginForm} from "../Types/TypesLogin";
 
 const api = {
-    setUsers: (pageSize = 80) => {
+    setUsers: (pageSize = 100) => {
         return samuraiAPI.get(`users?count=${pageSize}`)
             .then((res) => res.data.items);
     },

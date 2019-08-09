@@ -3,11 +3,8 @@ import {connect} from "react-redux";
 
 const mapStateToProps =(state:any)=> {
     return {
-        aboutMe: state.profilePage.fullProfile.aboutMe,
-        photo: state.profilePage.fullProfile.photo,
-        fullName: state.profilePage.fullProfile.fullName,
-        lookingForAJob: state.profilePage.fullProfile.lookingForAJob,
-        lookingForAJobDescription: state.profilePage.fullProfile.lookingForAJobDescription
+        fullProfile: state.profilePage.fullProfile,
+        github: state.profilePage.fullProfile.contacts.github
     }
 };
 const ConnectedDescription = connect(mapStateToProps)(Description);

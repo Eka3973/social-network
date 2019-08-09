@@ -1,13 +1,20 @@
 @import "../../../variables";
 
-.headerInner {
+.headerWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 1380px;
   height: 80px;
   background: rgba(110, 110, 110, 0.04);
   border-bottom: 1px solid $light-gray;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
 }
 
 

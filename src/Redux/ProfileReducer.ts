@@ -6,7 +6,7 @@ import api from "../DAL/samuraiAPI"
 export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
 const SET_AUTH_FULL_PROFILE = 'SN/AUTH/SET_AUTH_FULL_PROFILE';
 const CHANGE_PROFILE_PHOTO = 'SW/PAGE_CHANGE_PHOTO/CHANGE_PROFILE_PHOTO';
-// const EDIT_PROFILE = 'SN/PROFILE/EDIT_PROFILE';
+
 
 
 const initialState: any = {
@@ -49,13 +49,9 @@ const initialState: any = {
             aboutMe: '',
             contacts: {
                 facebook: '',
-                github: '',
-                instagram: '',
-                mainLink: '',
                 twitter: '',
-                vk: '',
-                website: '',
-                youtube: ''
+                youtube: '',
+                github: '',
             },
             lookingForAJob: true,
             lookingForAJobDescription: '',
@@ -78,9 +74,15 @@ const profileReducer = (state = initialState, action: any) => {
                     photo: action.photo,
                     fullName: action.fullName,
                     lookingForAJob: action.lookingForAJob,
-                    lookingForAJobDescription: action.lookingForAJobDescription
+                    lookingForAJobDescription: action.lookingForAJobDescription,
+                    contacts: {
+                        ...state.fullProfile.contacts,
+                        facebook: action.facebook,
+                        twitter: action.twitter,
+                        youtube: action.youtube,
+                        github: action.github
+                    }
                 }
-
             };
         }
         case CHANGE_PROFILE_PHOTO:
@@ -116,7 +118,12 @@ export const getUserProfile = () => {
                     data.photos.small,
                     data.fullName,
                     data.lookingForAJob,
-                    data.lookingForAJobDescription
+                    data.lookingForAJobDescription,
+                    data.contacts.facebook,
+                    data.contacts.twitter,
+                    data.contacts.youtube,
+                    data.contacts.github
+
                 ));
             })
     }
@@ -161,7 +168,10 @@ export const clearForm = () => {
 
 const imageChange = (previewImage: any, file: any) => ({type: CHANGE_PROFILE_PHOTO, previewImage, file});
 export const addPost = (addedPost: any) => ({type: ADD_MY_POST, post: addedPost});
-export const setAuthProfile = (aboutMe: any, photo: string, fullName: string, lookingForAJob: boolean, lookingForAJobDescription:string) =>
-    ({type: SET_AUTH_FULL_PROFILE, photo, fullName, aboutMe, lookingForAJob, lookingForAJobDescription});
+export const setAuthProfile = (aboutMe: any, photo: string, fullName: string, lookingForAJob: boolean,
+                               lookingForAJobDescription:string, facebook: string, twitter: string,
+                               youtube: string, github: string) =>
+    ({type: SET_AUTH_FULL_PROFILE, photo, fullName, aboutMe, lookingForAJob,
+                                   lookingForAJobDescription,  facebook, twitter, youtube, github});
 
 export default profileReducer;

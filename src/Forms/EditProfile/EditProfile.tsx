@@ -13,18 +13,14 @@ const EditProfile = ({getEditProfile}: IEditProfile) => {
         const userProfile = {
             aboutMe: values.aboutMe,
             contacts: {
-                github: values.github,
-                vk: values.vk,
                 facebook: values.facebook,
-                instagram: values.instagram,
+                github: values.github,
                 twitter: values.twitter,
-                website: values.website,
-                youtude: values.youtude,
-                mainLink: values.mainLink
+                youtube: values.youtube
             },
-            lookingForAJob: values.lookingForAJob,
-            lookingForAJobDescription: values.lookingForAJobDescription,
             fullName: values.fullName,
+            lookingForAJob: values.lookingForAJob,
+            lookingForAJobDescription: values.lookingForAJobDescription
         };
         getEditProfile(userProfile)
     };
@@ -73,18 +69,8 @@ const EditProfileForm = ({handleSubmit}: InjectedFormProps<IEditProfileForm>) =>
             />
             <Field component={EditProfileInput}
                    type='text'
-                   name='vk'
-                   placeholder='Vk'
-            />
-            <Field component={EditProfileInput}
-                   type='text'
                    name='facebook'
                    placeholder='Facebook'
-            />
-            <Field component={EditProfileInput}
-                   type='text'
-                   name='instagram'
-                   placeholder='Instagram'
             />
             <Field component={EditProfileInput}
                    type='text'
@@ -93,18 +79,8 @@ const EditProfileForm = ({handleSubmit}: InjectedFormProps<IEditProfileForm>) =>
             />
             <Field component={EditProfileInput}
                    type='text'
-                   name='website'
-                   placeholder='Website'
-            />
-            <Field component={EditProfileInput}
-                   type='text'
-                   name='youtude'
-                   placeholder='Youtude'
-            />
-            <Field component={EditProfileInput}
-                   type='text'
-                   name='mainLink'
-                   placeholder='MainLink'
+                   name='youtube'
+                   placeholder='Youtube'
             />
             <button className={style.button}>Save Changes</button>
         </form>
