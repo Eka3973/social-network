@@ -13,6 +13,7 @@ import News from "./components/News/News";
 import ConnectedSetting from "./components/Settings/SettingsConnect";
 import ConnectedChangePhotoProfile from "./Forms/UpdatePhoto/UpdatePhotoConnect";
 import ConnectedEditProfile from './Forms/EditProfile/EditProfileConnect';
+import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                 <Route exact path='/changePhoto' render={()=><ConnectedChangePhotoProfile/>}/>
                 <Route exact path='/editProfile' render={()=><ConnectedEditProfile/>}/>
                 <Route exact path='/login' render= {()=><ConnectedLogin/>}/>
+                <Footer/>
         </div>
     )
 

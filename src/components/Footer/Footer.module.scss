@@ -1,0 +1,28 @@
+@import "../../variables";
+
+.wrapper {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  border: 1px solid $light-gray;
+
+
+}
+
+.footerBuffer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin-left: 30px;
+  color: $dark-gray;
+
+  & a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+  & a:hover{
+    color: $light-blue
+  }
+}

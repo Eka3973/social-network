@@ -3,10 +3,11 @@ import Profile from "./Profile";
 import {saveNewStatus} from "../../Redux/StatusReducer";
 
 
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state: any) => {
     return {
         isAuth: state.auth.isAuth,
-        status:state.statusPage.status
+        status: state.statusPage.status,
+        isPreloader: state.preloaderPage.isPreloader
     }
 };
 

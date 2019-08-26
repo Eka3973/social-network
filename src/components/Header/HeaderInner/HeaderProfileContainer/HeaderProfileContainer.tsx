@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './HeaderProfile.module.scss';
+import style from './HeaderProfileContainer.module.scss';
 import {NavLink, Redirect} from "react-router-dom";
 
 interface IProps {
@@ -17,32 +17,8 @@ interface IState {
 
 }
 
-// const HeaderProfile = ({logOut, photo, isAuth, fullName}: IProps) => {
-//
-//     const onLogOutClick = () => {
-//         logOut();
-//
-//     };
-//
-//      if (!isAuth) {
-//          return <Redirect to='/login'/>
-//      }
-//
-//     return (
-//         <div className={style.wrapper}>
-//             <span className={style.userName}>{fullName}</span>
-//             <img className={style.userPhoto} src={photo} alt='User Avatar'/>
-//             <div className={style.userHiddenMenu}>
-//                 <NavLink to='/editProfile' className={style.hiddenMenuItem}>Edit profile</NavLink>
-//                 <NavLink to='/changePhoto' className={style.hiddenMenuItem} >Update photo</NavLink>
-//                 <button className={style.button} onClick={onLogOutClick}>Log Out</button>
-//             </div>
-//         </div>)
-//
-// };
-// export default HeaderProfile;
 
-class HeaderProfile extends React.Component<IProps, IState> {
+class HeaderProfileContainer extends React.Component<IProps, IState> {
     private container: React.RefObject<HTMLDivElement>;
 
     constructor(props: IProps) {
@@ -93,9 +69,11 @@ class HeaderProfile extends React.Component<IProps, IState> {
         }
         return (
             <div className={style.wrapper} ref={this.container}>
-                <span className={style.userName} onClick={this.showDropdownMenu}>{this.props.fullName}</span>
-                <img className={style.userPhoto} src={this.props.photo} alt='User Avatar'/>
-                {this.state.displayMenu &&
+                <div className={style.userProfile}>
+                    <span className={style.userName} onClick={this.showDropdownMenu}>{this.props.fullName}</span>
+                    <img className={style.userPhoto} src={this.props.photo} alt='User Avatar'/>
+                </div>
+               {this.state.displayMenu &&
                 <div className={style.userHiddenMenu}>
                     <NavLink to='/editProfile' className={style.hiddenMenuItem}>Edit profile</NavLink>
                     <NavLink to='/changePhoto' className={style.hiddenMenuItem}>Update photo</NavLink>
@@ -106,5 +84,5 @@ class HeaderProfile extends React.Component<IProps, IState> {
 
 }
 
-export default HeaderProfile;
+export default HeaderProfileContainer;
 

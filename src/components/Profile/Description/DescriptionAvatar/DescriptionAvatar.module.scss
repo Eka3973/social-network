@@ -1,0 +1,15 @@
+@import "../../../../variables";
+
+.descriptionImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+}
+
+.descriptionImg img {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+}
+

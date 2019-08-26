@@ -1,5 +1,6 @@
 @import "../../variables";
 /*outline: 1px solid red;*/
+
 .appWrapperNavbar {
   grid-row-start: 2;
   grid-column-start: 1;
@@ -45,17 +46,17 @@
   margin-right: 15px;
 }
 
-.count {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 23px;
-  height: 23px;
-  font-size: 12px;
-  border-radius: 100%;
-  background: $light-blue;
-  color: $shade-dark-blue;
-}
+//.count {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  width: 23px;
+//  height: 23px;
+//  font-size: 12px;
+//  border-radius: 100%;
+//  background: $light-blue;
+//  color: $shade-dark-blue;
+//}
 
 .item {
   width: 180px;

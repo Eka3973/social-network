@@ -1,19 +1,26 @@
 @import "../../../variables";
 
 
-.logo {
+.logo{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.logo span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 80px;
-    background-color: $shade-dark-blue;
+    background: $shade-dark-blue;
     border-bottom: 2px solid #223344;
+    height: 100%;
     color: $white;
     font-size: 38px;
     font-family: Pacifico, cursive;
     font-weight: 600;
     letter-spacing: -2px;
+
 }
 
 

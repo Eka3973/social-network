@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {getUsers, subscribe, unsubscribe} from "../../Redux/UsersReducer";
+import {subscribe, unsubscribe} from "../../Redux/UsersReducer";
 import Members from "./Members";
 import {AppState} from "../../Redux/Redux-store";
 
@@ -12,5 +12,5 @@ const mapStateToProps = (state: AppState) => {
     }
 };
 
-const ConnectedMembers = connect(mapStateToProps, {getUsers, subscribe, unsubscribe})(Members);
+const ConnectedMembers = connect(mapStateToProps, {subscribe, unsubscribe})(Members);
 export default ConnectedMembers;

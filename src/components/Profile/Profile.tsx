@@ -5,17 +5,15 @@ import ConnectedPost from "./Posts/PostsConnect";
 import ConnectedDescription from "./Description/DescriptionConnect";
 import ConnectedProfileImg from "./ProfileImage/ProfileImgConnect";
 
-const Profile =()=> {
-
-        return (
-            <div className={style.ProfileWrapper}>
-                <ConnectedProfileImg/>
-                <ConnectedDescription/>
-                <ConnectedMyPostsPage/>
-                <ConnectedPost/>
-            </div>
-        )
-
-}
+const Profile = () => {
+    return (
+        <div className={style.ProfileWrapper}>
+            <ConnectedProfileImg/>
+            <ConnectedDescription/>
+            <ConnectedMyPostsPage/>
+            <ConnectedPost/>
+        </div>
+    )
+};
 export default Profile;
 

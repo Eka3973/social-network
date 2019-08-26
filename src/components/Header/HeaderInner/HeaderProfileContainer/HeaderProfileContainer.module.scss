@@ -2,17 +2,24 @@
 @import "../../../../mixin";
 
 .wrapper {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  position: relative;
+  cursor: pointer;
+  background: rgba(110, 110, 110, 0.04);
+  border-bottom: 1px solid $light-gray;
+}
+.userProfile{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
-  position: relative;
-  cursor: pointer;
+  height: 100%;
 }
-
 .button {
   @include button-small;
-  margin: 5px 30px;
+  margin: 30px;
 }
 
 .userPhoto {
@@ -36,7 +43,10 @@
   align-items: center;
   flex-wrap: wrap;
   position: absolute;
-  top: 65px;
+  top: 80px;
+  left: 20px;
+  width: 65%;
+  box-shadow: 0 1px 4px 0 rgba(50,50,50,.2);
 
 }
 

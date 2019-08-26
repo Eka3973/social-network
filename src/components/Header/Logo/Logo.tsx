@@ -6,7 +6,7 @@ const Logo = () => {
     return (
 
             <div className={style.logo}>
-                Yo! React
+                <span>Yo! React</span>
             </div>
       )
 };

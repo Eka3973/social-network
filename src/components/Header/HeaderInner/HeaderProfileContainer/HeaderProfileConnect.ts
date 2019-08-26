@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import HeaderProfile from "./HeaderProfile";
+import HeaderProfileContainer from "./HeaderProfileContainer";
 import {logOut} from "../../../../Redux/AuthReducer";
 import {AppState} from "../../../../Redux/Redux-store";
 
@@ -13,5 +13,5 @@ const mapStateToProps = (state: AppState) => {
     }
 };
 
-const ConnectedHeaderProfile = connect(mapStateToProps, {logOut})(HeaderProfile);
+const ConnectedHeaderProfile = connect(mapStateToProps, {logOut})(HeaderProfileContainer);
 export default ConnectedHeaderProfile;

@@ -4,17 +4,19 @@ import {statuses} from "../../Redux/LoginReducer";
 import {Redirect} from "react-router-dom";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {ILoginForm} from "../../Types/TypesLogin";
+import Preloader from "../../components/Preloader/Preloader";
 
 interface ILogin {
     loginUp: Function,
     status: any,
     isAuth: boolean,
-    message: []
+    message: [],
+    isPreloader: boolean
 
 }
 
 
-const Login = ({loginUp, status, isAuth, message}: ILogin) => {
+const Login = ({loginUp, status, isAuth, message, isPreloader}: ILogin) => {
 
     const sendLogin = (values: any) => {
         loginUp(
@@ -31,9 +33,11 @@ const Login = ({loginUp, status, isAuth, message}: ILogin) => {
         <div className={style.errorMessage}>{message}</div>;
 
     return (
+
         <div className={style.appWrapperLoginPage}>
+
             <div className={style.logo}>Yo! React</div>
-            <LoginFormConnect onSubmit={sendLogin} status={status}/>
+            <LoginFormConnect onSubmit={sendLogin} status={status} isPreloader={isPreloader}/>
             {errorMessageBlock}
         </div>
     )
@@ -41,10 +45,10 @@ const Login = ({loginUp, status, isAuth, message}: ILogin) => {
 export default Login;
 
 
-
-
-const LoginForm = ({handleSubmit, submitting}: InjectedFormProps<ILoginForm>) => {
+// @ts-ignore
+const LoginForm = ({handleSubmit, submitting, isPreloader}: InjectedFormProps<ILoginForm>) => {
     return (
+        (isPreloader === true? <Preloader/>:
         <form onSubmit={handleSubmit} className={style.form}>
             <Field component={LoginInput}
                    type='text' name='login'
@@ -58,16 +62,16 @@ const LoginForm = ({handleSubmit, submitting}: InjectedFormProps<ILoginForm>) =>
                    warn={[passwordSymbolValidation, passwordMinLengthValidation]}
             />
             <label className={style.checkboxWrapper}>
-            <Field component={LoginInput}
-                   type="checkbox"
-                   name='remember'
-                   className={style.checkbox}
-            />
-            <div>Remember Me</div>
-        </label>
+                <Field component={LoginInput}
+                       type="checkbox"
+                       name='remember'
+                       className={style.checkbox}
+                />
+                <div>Remember Me</div>
+            </label>
             <button type="submit" disabled={submitting} className={style.button}>Sign In
             </button>
-        </form>
+        </form>)
     )
 };
 
@@ -77,7 +81,6 @@ const LoginFormConnect: any = reduxForm<ILoginForm>({form: 'login-form'})(LoginF
 interface ITextArea {
     input: object,
     meta: any,
-
 }
 
 const LoginInput = ({input, meta: {touched, error, warning}, ...props}: ITextArea) => {

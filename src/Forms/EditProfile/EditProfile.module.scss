@@ -6,7 +6,6 @@
   grid-column-start: 2;
   grid-column-end: 3;
   border-right: 1px solid $light-gray;
-  width: 100%;
   color: $dark-gray;
   padding-top: 20px;
 
@@ -20,7 +19,7 @@
   background: transparent;
   border: 2px solid $light-gray;
   border-radius: 4px;
-  width: 950px;
+  width: 800px;
   height: 40px;
 }
 .button {

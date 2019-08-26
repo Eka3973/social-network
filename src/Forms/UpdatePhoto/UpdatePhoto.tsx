@@ -25,7 +25,7 @@ const UpdatePhoto = ({setImageChange, previewImage, file, getUserProfile, getUrl
     };
 
     return (
-        <div className={style.newsWrapper}>
+        <div className={style.wrapper}>
             <h3>Change Profile Photo</h3>
             <div className={style.textNote}>
                 <span>Your profile photo will be used on your profile and throughout the site.</span>
@@ -40,9 +40,7 @@ const UpdatePhoto = ({setImageChange, previewImage, file, getUserProfile, getUrl
                        onChange={handleImageChange}
                        id='file-input'/>
                 <label className={style.optionButton} htmlFor="file-input">Chose your file</label>
-
-                <button type='submit' className={style.uploadButton}>Upload Image
-                </button>
+                <button type='submit' className={style.uploadButton}>Upload Image</button>
             </form>
 
         </div>

@@ -1,13 +1,13 @@
 import samuraiAPI from "./CreateInstance";
-import {IuserId} from "../Types/TypesUsers";
+import {IuserId, IUsersTypes} from "../Types/TypesUsers";
 import {IuserInfoType} from "../Types/TypesAuth";
 import {IStatus} from "../Types/TypesStatus";
 import {ILoginForm} from "../Types/TypesLogin";
 
 const api = {
-    setUsers: (pageSize = 100) => {
-        return samuraiAPI.get(`users?count=${pageSize}`)
-            .then((res) => res.data.items);
+    setUsers: (pageSize:IUsersTypes, currentPage:IUsersTypes) => {
+        return samuraiAPI.get(`users?page=${currentPage}&count=${pageSize}`)
+            .then((res) => res.data);
     },
 
     setSubscribe: (userId: IuserId) => {

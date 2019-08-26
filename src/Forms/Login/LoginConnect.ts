@@ -10,6 +10,7 @@ const mapStateToProps = (state: AppState) => {
         isAuth: state.auth.isAuth,
         status: state.loginPage.status,
         message: state.loginPage.message,
+        isPreloader: state.preloaderPage.isPreloader
         // captchaUrl: state.login.captchaUrl
     }
 };

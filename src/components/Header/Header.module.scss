@@ -1,19 +1,13 @@
 @import "../../variables";
 
-.appWrapperHeader {
-  grid-row-start: 1;
-  grid-row-end: 2;
-  grid-column-start: 1;
-  grid-column-end: 4;
- }
 
 .headerWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 80px;
+  grid-template-columns: 300px 950px 280px;
   background: white;
   position: fixed;
+
 
 }
 

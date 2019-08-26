@@ -1,25 +1,17 @@
 @import "../../../../variables";
 
-.wrapper {
-  display: flex;
-  justify-content: flex-start;
-  width: 890px;
-
-}
-
 .innerWrapper {
   display: flex;
   justify-content: space-around;
+  width: 300px;
   align-items: center;
   list-style: none;
-  width: 300px;
   cursor: pointer;
 }
 
 .item {
   text-decoration: none;
   color: $light-blue;
-
 }
 
 .item:hover {

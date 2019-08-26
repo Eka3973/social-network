@@ -91,5 +91,13 @@
   border: 2px solid $light-blue;
   color: $light-blue;
   margin-left: 30px;
+}
+
+.selectedPage{
+font-weight: bold;
+
+  //&:hover{
+  //  cursor: pointer;
+  //}
 
 }

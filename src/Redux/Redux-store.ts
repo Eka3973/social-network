@@ -9,6 +9,7 @@ import authReducer from "./AuthReducer";
 import statusReducer from "./StatusReducer";
 import {reducer as formReducer } from 'redux-form';
 import {composeWithDevTools} from "redux-devtools-extension";
+import preloaderReducer from "./PreloaderReducer";
 
 
 const reducers = combineReducers({
@@ -19,6 +20,7 @@ const reducers = combineReducers({
     loginPage: loginReducer,
     auth: authReducer,
     statusPage: statusReducer,
+    preloaderPage: preloaderReducer,
     form: formReducer
 
 });

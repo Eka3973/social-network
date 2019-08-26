@@ -1,13 +1,13 @@
 @import "../../variables";
 @import "../../mixin";
 
-.newsWrapper {
+.wrapper {
     grid-row-start: 2;
     grid-column-start: 2;
     grid-column-end: 3;
     border-right: 1px solid $light-gray;
     width: 100%;
-    height: 500px;
+
     color: $dark-gray;
     display: flex;
     flex-direction: column;
@@ -32,6 +32,7 @@
     height: 350px;
     border-style: dashed;
     border-color: $light-gray;
+    margin-bottom: 20px;
 }
 .previewImage{
     width: 150px;
@@ -41,7 +42,7 @@
 .input {
     width: 0.1px;
     height: 0.1px;
-    z-index: -10;
+
 
 }
 .optionButton{

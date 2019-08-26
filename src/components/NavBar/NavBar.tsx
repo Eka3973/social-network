@@ -16,7 +16,7 @@ const NavBar = ({navBarPage}:IProps) => {
                     <img src={elem.iconSrc} className={style.navImg} alt={elem.iconAlt}/>
                     {elem.pageName}
                 </div>
-                <div className={style.count}>1</div>
+                {/*<div className={style.count}>1</div>*/}
             </div>
         </NavLink>
     );
