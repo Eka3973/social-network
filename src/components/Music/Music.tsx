@@ -8,7 +8,6 @@ const Music = () => {
         <div className={style.musicWrapper}>
 
         </div>
-
     )
 };
 export default Music;

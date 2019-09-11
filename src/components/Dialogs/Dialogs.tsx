@@ -5,7 +5,6 @@ import ConnectedMessage from "./Messages/MessagesConnect";
 import ConnectedAddMessage from "../../Forms/AddMessage/AddMessageConnect";
 
 const Dialogs = () => {
-
     return (
         <div className={style.dialogsWrapper}>
             <ConnectedDialogsUsers/>

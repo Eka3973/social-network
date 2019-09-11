@@ -16,14 +16,13 @@
 .PostItemImg {
   display: flex;
   align-items: center;
-}
 
-
-.PostItemImg img {
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  border: 3px solid $light-blue;
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 3px solid $light-blue;
+  }
 }
 
 .PostItemMessage {
@@ -33,12 +32,12 @@
   width: 540px;
   height: 150px;
   border-top: 1px solid $light-gray;
-}
 
-.PostItemMessage span {
-  font-weight: 600;
-  font-size: 19px;
-  margin-bottom: 3%;
+  & span {
+    font-weight: 600;
+    font-size: 19px;
+    margin-bottom: 3%;
+  }
 }
 
 .PostItemLike {
@@ -49,14 +48,16 @@
   width: 150px;
   height: 150px;
   border-top: 1px solid $light-gray;
+
+  & div {
+    color: #f14e56;
+  }
+
+  & span {
+    padding-left: 5px;
+    font-size: 22px;
+    color: $light-blue;
+  }
 }
 
-.PostItemLike div {
-  color: #f14e56;
-}
 
-.PostItemLike span {
-  padding-left: 5px;
-  font-size: 22px;
-  color: $light-blue;
-}

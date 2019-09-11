@@ -1,4 +1,4 @@
-export interface InavBar {
+export interface INavBar {
     id: number,
     path: string,
     pageName: string,

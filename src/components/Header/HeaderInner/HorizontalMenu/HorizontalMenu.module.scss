@@ -12,8 +12,9 @@
 .item {
   text-decoration: none;
   color: $light-blue;
+
+  &:hover {
+    color: $dark-gray;
+  }
 }
 
-.item:hover {
-  color: $dark-gray;
-}

@@ -3,12 +3,10 @@ import style from "./ProfileStatus.module.scss";
 import {Field, reduxForm} from "redux-form";
 
 
-
 interface ProfileStatus {
     saveNewStatus: Function,
     initialValues: any,
 }
-
 
 
 const ProfileStatus = ({saveNewStatus, initialValues}: ProfileStatus) => {
@@ -21,7 +19,7 @@ const ProfileStatus = ({saveNewStatus, initialValues}: ProfileStatus) => {
     };
 
 
-    const addStatus = (values:any) => {
+    const addStatus = (values: any) => {
         saveNewStatus(values.status);
         showForm(!isHidden)
     };
@@ -46,7 +44,7 @@ interface FormStatus {
     handleSubmit: any
 }
 
-const FormStatus = ({handleSubmit}:FormStatus) => {
+const FormStatus = ({handleSubmit}: FormStatus) => {
     return (
         <form onSubmit={handleSubmit} className={style.changeStatusWrapper}>
             <Field component={TextArea}
@@ -55,22 +53,22 @@ const FormStatus = ({handleSubmit}:FormStatus) => {
                    placeholder='Change status'
 
             />
-            <button type='submit'>Save</button>
+            <button className={style.button} type='submit'>Save</button>
         </form>
     )
 
 };
 
-const  FormStatusConnect = reduxForm({form: 'form-status'})(FormStatus);
+const FormStatusConnect = reduxForm({form: 'form-status'})(FormStatus);
 
 interface TextArea {
-    input:any
+    input: any
 }
 
-const TextArea = ({input, ...props}:TextArea) => {
-    return(
+const TextArea = ({input, ...props}: TextArea) => {
+    return (
         <div>
-            <textarea {...input}  {...props} />
+            <textarea {...input} {...props} />
         </div>
 
     )

@@ -2,61 +2,68 @@ export const SET_USERS = 'SN/USERS/SET_USERS';
 export const UNSUBSCRIBE = 'SN/USERS/UNSUBSCRIBE';
 export const SUBSCRIBE = 'SN/USERS/SUBSCRIBE';
 export const SET_CURRENT_PAGE = 'SN/USERS/SET_CURRENT_PAGE';
+export const BUTTON_DISABLED = 'SN/USERS/BUTTON_DISABLED';
 
-export interface IuserId {
+export interface IUserId {
     userId: number
 }
 
-export interface IusersPhoto {
+export interface IUsersPhoto {
     photos: {
         small: string,
         large: string
     }
 }
 
-export interface Iusers {
+export interface IUsers {
     users:  {
         name: string,
         id: number,
         status: string,
         followed: boolean,
-        photos: IusersPhoto
+        photos: IUsersPhoto
     }
 }
 
 export interface IUsersTypes {
-    users:  Iusers[],
+    users:  IUsers[],
     iconUserSrc: any,
     altImg: string,
     pageSize: number,
     usersCount: number,
-    currentPage: number
+    currentPage: number,
+    buttonDisabled: boolean
 
 }
 
 
-interface IsetUsersAction {
+interface ISetUsersAction {
     type: typeof SET_USERS,
     users: [],
     usersCount: number
 }
 
-interface IunsubscribeAction {
+interface IUnsubscribeAction {
     type: typeof UNSUBSCRIBE,
     userId: number
 }
 
-interface IsubscribeAction {
+interface ISubscribeAction {
     type: typeof SUBSCRIBE,
     userId: number
 }
 
-export interface IcurrentPage {
+export interface ICurrentPageAction {
     type: typeof SET_CURRENT_PAGE,
     currentPage : number
 }
 
-export type IuserAction = IsetUsersAction | IunsubscribeAction | IsubscribeAction | IcurrentPage;
+export interface IButtonDisabled  {
+    type: typeof BUTTON_DISABLED,
+    buttonDisabled : boolean
+}
+
+export type IUserAction = ISetUsersAction | IUnsubscribeAction | ISubscribeAction | ICurrentPageAction | IButtonDisabled ;
 
 
 

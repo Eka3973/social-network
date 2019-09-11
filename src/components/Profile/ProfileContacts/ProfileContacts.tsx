@@ -3,7 +3,11 @@ import style from './ProfileContacts.module.scss'
 
 
 interface IProfileContacts {
-    contacts: any
+    contacts: {
+        facebook: string,
+        twitter: string,
+        youtube: string
+    }
 
 }
 

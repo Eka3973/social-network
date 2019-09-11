@@ -3,10 +3,8 @@ import {AuthActionType, IAuthType, SET_IS_AUTH, SET_USER_INFO} from "../Types/Ty
 import {Dispatch} from "redux";
 
 
-
-
-export const setIsAuth = (isAuth: any)=> ({type: SET_IS_AUTH,  isAuth});
-export const setUserInfo = (userId: any) => ({type: SET_USER_INFO, userId});
+export const setIsAuth = (isAuth: boolean) => ({type: SET_IS_AUTH, isAuth});
+export const setUserInfo = (userId: number | null) => ({type: SET_USER_INFO, userId});
 
 
 let initialState: IAuthType = {
@@ -16,7 +14,7 @@ let initialState: IAuthType = {
     }
 };
 
-const AuthReducer = (state = initialState, action: AuthActionType)=> {
+const AuthReducer = (state = initialState, action: AuthActionType) => {
 
     switch (action.type) {
         case SET_IS_AUTH: {
@@ -25,7 +23,7 @@ const AuthReducer = (state = initialState, action: AuthActionType)=> {
         case SET_USER_INFO: {
             return {
                 ...state,
-                userInfo:  {
+                userInfo: {
                     ...state.userInfo,
                     userId: action.userId
                 }
@@ -50,9 +48,8 @@ export const me = () => {
 };
 
 
-
 export const logOut = () => {
-    return (dispatch: any) => {
+    return (dispatch: Dispatch) => {
         api.setLogout()
             .then((resultCode) => {
                     if (resultCode === 0) {

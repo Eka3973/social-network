@@ -7,7 +7,7 @@ import loginReducer from "./LoginReducer";
 import thunk from "redux-thunk";
 import authReducer from "./AuthReducer";
 import statusReducer from "./StatusReducer";
-import {reducer as formReducer } from 'redux-form';
+import {reducer as formReducer} from 'redux-form';
 import {composeWithDevTools} from "redux-devtools-extension";
 import preloaderReducer from "./PreloaderReducer";
 
@@ -28,4 +28,4 @@ const reducers = combineReducers({
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 export default store;
 
- export type  AppState = ReturnType<typeof reducers>
+export type  AppState = ReturnType<typeof reducers>

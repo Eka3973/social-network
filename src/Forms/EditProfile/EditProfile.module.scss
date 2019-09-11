@@ -21,11 +21,12 @@
   border-radius: 4px;
   width: 800px;
   height: 40px;
+  &.input[placeholder] {
+    padding-left: 0;
+  }
 }
 .button {
   @include button-large;
 }
 
-.input[placeholder] {
-  padding-left: 0;
-}
+

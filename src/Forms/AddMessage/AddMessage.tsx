@@ -10,7 +10,7 @@ interface IAddMessage {
     submitting: any
 }
 
-const AddMessage = ({addMessage, clearForm}:IAddMessage) => {
+const AddMessage = ({addMessage, clearForm}: IAddMessage) => {
 
     const addMessageItem = (values: any) => {
         addMessage(values.message);
@@ -33,13 +33,13 @@ interface IMessageForm {
     submitting: any
 }
 
-const MessageForm = ({handleSubmit, pristine, submitting}:IMessageForm) => {
+const MessageForm = ({handleSubmit, pristine, submitting}: IMessageForm) => {
     return (
         <form onSubmit={handleSubmit} className={style.messageContent}>
             <Field component={TextArea}
-                      type="text"
-                      name='message'
-                      placeholder='Your message...'
+                   type="text"
+                   name='message'
+                   placeholder='Your message...'
             />
             <button type='submit' disabled={pristine || submitting} className={style.button}>Send Reply</button>
         </form>
@@ -48,10 +48,10 @@ const MessageForm = ({handleSubmit, pristine, submitting}:IMessageForm) => {
 const MessageFormConnect = reduxForm({form: 'my-message'})(MessageForm);
 
 interface ITextArea {
-    input: any
+    input: object
 }
 
-const TextArea = ({input, ...props}:ITextArea) => {
+const TextArea = ({input, ...props}: ITextArea) => {
     return (
         <div>
             <textarea {...input} {...props} className={style.textarea}/>

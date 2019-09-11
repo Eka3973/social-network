@@ -1,19 +1,21 @@
 import React from 'react';
 import style from "./DescriptionAvatar.module.scss";
 
+
 interface IProps {
-    photo: any,
+    fullProfile: {
+        photo: string
+    }
 
 }
 
-
-const DescriptionAvatar = ({photo}: IProps) => {
+const DescriptionAvatar = ({fullProfile}: IProps) => {
 
     return (
-            <div className={style.descriptionImg}>
-                <img src={photo} alt='User avatar'/>
-            </div>
-           )
+        <div className={style.descriptionImg}>
+            <img src={fullProfile.photo} alt='User avatar'/>
+        </div>
+    )
 
 };
 export default DescriptionAvatar;

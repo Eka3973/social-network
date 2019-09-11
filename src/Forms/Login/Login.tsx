@@ -5,10 +5,11 @@ import {Redirect} from "react-router-dom";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {ILoginForm} from "../../Types/TypesLogin";
 import Preloader from "../../components/Preloader/Preloader";
+import {IPreloader} from "../../Types/TypesPreloader";
 
 interface ILogin {
     loginUp: Function,
-    status: any,
+    status: string,
     isAuth: boolean,
     message: [],
     isPreloader: boolean
@@ -35,7 +36,6 @@ const Login = ({loginUp, status, isAuth, message, isPreloader}: ILogin) => {
     return (
 
         <div className={style.appWrapperLoginPage}>
-
             <div className={style.logo}>Yo! React</div>
             <LoginFormConnect onSubmit={sendLogin} status={status} isPreloader={isPreloader}/>
             {errorMessageBlock}
@@ -45,33 +45,35 @@ const Login = ({loginUp, status, isAuth, message, isPreloader}: ILogin) => {
 export default Login;
 
 
+
+
 // @ts-ignore
 const LoginForm = ({handleSubmit, submitting, isPreloader}: InjectedFormProps<ILoginForm>) => {
     return (
-        (isPreloader === true? <Preloader/>:
-        <form onSubmit={handleSubmit} className={style.form}>
-            <Field component={LoginInput}
-                   type='text' name='login'
-                   placeholder='Email'
-                   validate={emailValidation}
-            />
-            <Field component={LoginInput}
-                   type='Password'
-                   name='password'
-                   placeholder="Password"
-                   warn={[passwordSymbolValidation, passwordMinLengthValidation]}
-            />
-            <label className={style.checkboxWrapper}>
+        (isPreloader === true ? <Preloader/> :
+            <form onSubmit={handleSubmit} className={style.form}>
                 <Field component={LoginInput}
-                       type="checkbox"
-                       name='remember'
-                       className={style.checkbox}
+                       type='text' name='login'
+                       placeholder='Email'
+                       validate={emailValidation}
                 />
-                <div>Remember Me</div>
-            </label>
-            <button type="submit" disabled={submitting} className={style.button}>Sign In
-            </button>
-        </form>)
+                <Field component={LoginInput}
+                       type='Password'
+                       name='password'
+                       placeholder="Password"
+                       warn={[passwordSymbolValidation, passwordMinLengthValidation]}
+                />
+                <label className={style.checkboxWrapper}>
+                    <Field component={LoginInput}
+                           type="checkbox"
+                           name='remember'
+                           className={style.checkbox}
+                    />
+                    <div>Remember Me</div>
+                </label>
+                <button type="submit" disabled={submitting} className={style.button}>Sign In
+                </button>
+            </form>)
     )
 };
 

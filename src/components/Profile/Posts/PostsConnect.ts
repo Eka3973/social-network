@@ -3,7 +3,6 @@ import Posts from "./Posts";
 import {AppState} from "../../../Redux/Redux-store";
 
 
-
 const mapStateToProps = (state: AppState) => {
 
     return {

@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import UpdatePhoto from "./UpdatePhoto";
-
 import {setImageChange, getUserProfile, getUrlPhotoToProfile} from "../../Redux/ProfileReducer";
+import {AppState} from "../../Redux/Redux-store";
 
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
 
     return {
         previewImage: state.profilePage.previewImage,
@@ -13,9 +13,6 @@ const mapStateToProps = (state: any) => {
 };
 
 const ConnectedChangePhotoProfile = connect(mapStateToProps,
-    {
-        setImageChange, getUrlPhotoToProfile,
-        getUserProfile
-    })(UpdatePhoto);
+    {setImageChange, getUrlPhotoToProfile, getUserProfile})(UpdatePhoto);
 
 export default ConnectedChangePhotoProfile;

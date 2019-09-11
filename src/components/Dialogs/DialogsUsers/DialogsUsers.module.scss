@@ -2,35 +2,41 @@
 /*outline: 1px solid red;*/
 
 .userItem {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    width: 350px;
-    height: 120px;
-    font-size: 16px;
-    font-weight: bold;
-    padding-left: 30px;
-    border-top: 1px solid $light-gray;
-    border-right: 1px solid $light-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 350px;
+  height: 120px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 30px;
+  border-top: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
 }
+
 .active {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: $light-blue;
+  }
 }
-.active:hover {
-  color: $light-blue;
-}
+
+
 .userAvatar {
-    width: 50px;
-    height: 50px;
-}
-.userAvatar img {
+  width: 50px;
+  height: 50px;
+
+  & img {
     width: 100%;
     border-radius: 100%;
-    border: 2px solid  $light-blue;
+    border: 2px solid $light-blue;
+  }
 }
+
 .userFrom {
-    margin-right: 5px;
-    color: $dark-gray;
+  margin-right: 5px;
+  color: $dark-gray;
 }

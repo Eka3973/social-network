@@ -11,12 +11,18 @@
   background: rgba(110, 110, 110, 0.04);
   border-bottom: 1px solid $light-gray;
 }
-.userProfile{
+
+.userProfile {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  & span:hover {
+    color: $light-blue;
+  }
 }
+
 .button {
   @include button-small;
   margin: 30px;
@@ -27,15 +33,18 @@
   height: 50px;
   border-radius: 100%;
 }
+
 .userName {
   color: $dark-gray;
+
+  &:after {
+    content: "\2228";
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 900;
+  }
 }
-.userName:after {
-  content: "\2228";
-  padding: 10px;
-  font-size: 12px;
-  font-weight: 900;
-}
+
 
 .userHiddenMenu {
   display: flex;
@@ -46,7 +55,7 @@
   top: 80px;
   left: 20px;
   width: 65%;
-  box-shadow: 0 1px 4px 0 rgba(50,50,50,.2);
+  box-shadow: 0 1px 4px 0 rgba(50, 50, 50, .2);
 
 }
 
@@ -54,8 +63,9 @@
   padding: 15px;
   color: $dark-gray;
   text-decoration: none;
+
+  &:hover {
+    color: $light-blue;
+  }
 }
 
-.hiddenMenuItem:hover {
-  color: $light-blue;
-}

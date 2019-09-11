@@ -1,15 +1,17 @@
 @import "../../../../variables";
 
 .descriptionImg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 360px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
 
-.descriptionImg img {
+  & img {
     width: 180px;
     height: 180px;
     border-radius: 100%;
+  }
 }
+
+
 

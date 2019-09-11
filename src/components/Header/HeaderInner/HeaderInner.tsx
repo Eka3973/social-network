@@ -1,14 +1,14 @@
 import React from "react";
 import style from './HeaderInner.module.scss';
-import ConnectedHorizontalMenu from "./HorizontalMenu/HorizontalMenuConnect";
 import ConnectedProfileContacts from "../../Profile/ProfileContacts/ProfileContactsConnect";
+import HorizontalMenu from "./HorizontalMenu/HorizontalMenu";
 
 
 const HeaderInner = () => {
     return (
         <div className={style.headerInnerWrapper}>
             <div className={style.headerInner}>
-                <ConnectedHorizontalMenu/>
+                <HorizontalMenu/>
                 <ConnectedProfileContacts/>
             </div>
         </div>

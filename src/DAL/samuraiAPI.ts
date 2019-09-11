@@ -1,22 +1,22 @@
 import samuraiAPI from "./CreateInstance";
-import {IuserId, IUsersTypes} from "../Types/TypesUsers";
-import {IuserInfoType} from "../Types/TypesAuth";
+import {IUserId, IUsersTypes} from "../Types/TypesUsers";
+import {IUserInfoType} from "../Types/TypesAuth";
 import {IStatus} from "../Types/TypesStatus";
 import {ILoginForm} from "../Types/TypesLogin";
 
 const api = {
-    setUsers: (pageSize:IUsersTypes, currentPage:IUsersTypes) => {
+    setUsers: (pageSize: IUsersTypes, currentPage: IUsersTypes) => {
         return samuraiAPI.get(`users?page=${currentPage}&count=${pageSize}`)
             .then((res) => res.data);
     },
 
-    setSubscribe: (userId: IuserId) => {
+    setSubscribe: (userId: IUserId) => {
         return samuraiAPI.post('follow/' + userId)
             .then((res) => userId)
 
 
     },
-    setUnsubscribe: (userId: IuserId) => {
+    setUnsubscribe: (userId: IUserId) => {
         return samuraiAPI.delete('follow/' + userId)
             .then((res) => userId)
 
@@ -60,7 +60,7 @@ const api = {
         })
     },
 
-    getProfileStatus: (userId: IuserInfoType) => {
+    getProfileStatus: (userId: IUserInfoType) => {
         return samuraiAPI.get('profile/status/' + userId)
             .then((res) => res.data)
     },

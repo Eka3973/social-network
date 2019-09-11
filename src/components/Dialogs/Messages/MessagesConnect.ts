@@ -1,7 +1,8 @@
 import Messages from "./Messages";
 import {connect} from "react-redux";
+import {AppState} from "../../../Redux/Redux-store";
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
     return {
         messages: state.dialogsPage.messages
     }

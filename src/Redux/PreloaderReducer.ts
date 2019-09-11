@@ -1,6 +1,7 @@
-
 import {IPreloader, IPreloaderAction, PRELOADER} from "../Types/TypesPreloader";
+import {Dispatch} from "redux";
 
+const showPreloader = (isPreloader: boolean) => ({type: PRELOADER, isPreloader});
 
 const initialState: IPreloader = {
     isPreloader: false
@@ -10,7 +11,6 @@ const initialState: IPreloader = {
 const preloaderReducer = (state = initialState, action: IPreloaderAction) => {
 
     switch (action.type) {
-
         case PRELOADER: {
             return {
                 ...state,
@@ -21,15 +21,12 @@ const preloaderReducer = (state = initialState, action: IPreloaderAction) => {
             return state;
     }
 };
-export const setPreloader = (isPreloader: any) => {
-    return (dispatch: any) => {
-           dispatch(showPreloader(isPreloader));
 
+export const setPreloader = (isPreloader: boolean) => {
+    return (dispatch: Dispatch) => {
+        dispatch(showPreloader(isPreloader));
     }
 };
 
-
-
 export default preloaderReducer;
 
-const showPreloader = (isPreloader: IPreloader) => ({type: PRELOADER, isPreloader});

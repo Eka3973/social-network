@@ -5,25 +5,25 @@ import DescriptionAvatar from "./DescriptionAvatar/DescriptionAvatar";
 
 
 interface IProps {
-    fullProfile: any,
+    fullProfile: {
+        aboutMe: string,
+        photo: string,
+        fullName: string,
+        lookingForAJob: boolean,
+        lookingForAJobDescription: string
+    }
     github: string
 }
 
-
-const Description = ({fullProfile: {aboutMe, photo, fullName, lookingForAJob, lookingForAJobDescription}, github}: IProps) => {
+const Description = ({fullProfile, github}: IProps) => {
 
     return (
         <div className={style.descriptionWrapper}>
-                <DescriptionAvatar photo={photo}/>
-                    <UserDescription aboutMe={aboutMe}
-                                     fullName={fullName}
-                                     lookingForAJob={lookingForAJob}
-                                     lookingForAJobDescription={lookingForAJobDescription}
-                                     github={github}
-                    />
+            <DescriptionAvatar fullProfile={fullProfile}/>
+            <UserDescription fullProfile={fullProfile} github={github}/>
 
         </div>
-)
+    )
 
 };
 export default Description;

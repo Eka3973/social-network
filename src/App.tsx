@@ -16,12 +16,13 @@ import ConnectedEditProfile from './Forms/EditProfile/EditProfileConnect';
 import Footer from "./components/Footer/Footer";
 
 
+
 const App = () => {
     return (
         <div className='appWrapper'>
             <Header/>
             <ConnectedNavBarPage/>
-                <Route exact path='/profile' render={()=><ConnectedProfile/>}/>
+                <Route  path='/profile/:userId?' render={()=><ConnectedProfile/>}/>
                 <Route exact path='/dialogs' render={()=><Dialogs/>}/>
                 <Route exact path='/following' render={()=><ConnectedFollowers/>}/>
                 <Route exact path='/news' render={()=><News/>}/>

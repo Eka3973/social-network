@@ -18,6 +18,11 @@
   border-top: 1px solid $light-gray;
   margin: auto;
 
+  & img {
+    width: 70px;
+    border-radius: 100%;
+  }
+
 }
 
 .userImg {
@@ -25,11 +30,6 @@
   width: 100px;
   height: 70px;
 
-}
-
-.userItem img {
-  width: 70px;
-  border-radius: 100%;
 }
 
 .userData {
@@ -55,31 +55,33 @@
   flex-direction: row;
   align-items: center;
 
+  & span:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 100%;
+    background: $light-blue;
+    color: white;
+  }
+
+  & span:nth-child(2) {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+    margin-left: 8px;
+  }
 }
 
-.countFollower span:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  font-size: 13px;
-  border-radius: 100%;
-  background: $light-blue;
-  color: white;
-}
-.countFollower span:nth-child(2) {
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.4);
-  font-style: italic;
-  margin-left: 8px;
-}
 .buttons {
   display: flex;
   justify-content: flex-end;
   width: 643px;
 
 }
+
 .buttonCancel {
   width: 200px;
   height: 40px;
@@ -90,6 +92,7 @@
   font-size: 14px;
 
 }
+
 .buttonFollower {
   width: 200px;
   height: 40px;

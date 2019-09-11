@@ -2,7 +2,6 @@ import React from 'react';
 import style from "./Pagination.module.scss";
 
 
-
 interface IProps {
     usersCount: number,
     pageSize: number,
@@ -39,11 +38,6 @@ const Pagination = ({pageSize, usersCount, currentPage, setCurrentPage, getUsers
     let pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
 
 
-    // for (let i = 1; i <= pagesCount; i++) {
-    //     pages.push(i);
-    // }
-
-
     return (
         <ul className={style.pagination}>
             <li onClick={() => onPageChanged(1)}>
@@ -53,7 +47,8 @@ const Pagination = ({pageSize, usersCount, currentPage, setCurrentPage, getUsers
                 Previous
             </li>
             {pages.map(p => {
-                return <li className={currentPage === p ? style.active : ''}
+
+                return <li key={p} className={currentPage === p ? style.active : ''}
                            onClick={() => onPageChanged(p)}>{p}
                 </li>
 

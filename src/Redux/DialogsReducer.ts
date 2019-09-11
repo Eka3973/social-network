@@ -1,10 +1,11 @@
 import {reset} from "redux-form";
+import {IAddMessageAction, ADD_MESSAGE, IMessagesState} from "../Types/TypesDialogs";
+import {Dispatch} from "redux";
 
-export const ADD_MESSAGE = 'SW/MESSAGE/ADD_MESSAGE';
-
-const initialState = {
+export const addMessage = (addedMessage: object) => ({type: ADD_MESSAGE, comment: addedMessage});
 
 
+const initialState: IMessagesState = {
     messages: [
         {
             id: 1,
@@ -30,12 +31,9 @@ const initialState = {
         myImg: 'https://avatarko.ru/img/avatar/4/devushka_brunetka_3755.jpg',
         myImgAlt: 'Profile picture of Jill Smith',
     }
-
-
 };
 
-
-const dialogsReducer = (state = initialState, action: any) => {
+const dialogsReducer = (state = initialState, action: IAddMessageAction) => {
 
     switch (action.type) {
         case ADD_MESSAGE:
@@ -56,14 +54,9 @@ const dialogsReducer = (state = initialState, action: any) => {
 };
 
 export const clearForm = () => {
-    return (dispatch: any) => {
+    return (dispatch: Dispatch) => {
         dispatch(reset('my-message'))
     }
 };
-
-
-export const addMessage = (addedMessage: any) =>
-    ({type: ADD_MESSAGE, comment: addedMessage});
-
 
 export default dialogsReducer;

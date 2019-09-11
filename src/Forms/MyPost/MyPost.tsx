@@ -16,7 +16,7 @@ const MyPost = ({addPost, clearForm}: IMyPost) => {
     return (
         <div className={style.myPostWrapper}>
             <h2>My posts</h2>
-            <MyPostReduxForm onSubmit={addText} />
+            <MyPostReduxForm onSubmit={addText}/>
         </div>
     )
 };
@@ -47,6 +47,7 @@ const MyPostReduxForm: any = reduxForm({form: 'my-post-form'})(MyPostForm);
 interface IMTextArea {
     input: any,
 }
+
 const TextArea = ({input, ...props}: IMTextArea) => {
     return (
         <div>

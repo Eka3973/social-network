@@ -3,7 +3,6 @@ import {ADD_STATUS, IStatusAction, IStatus} from "../Types/TypesStatus";
 import {Dispatch} from "redux";
 
 
-
 const initialState: IStatus = {
     status: ''
 };
@@ -32,7 +31,7 @@ export const setProfileStatus = () => {
             })
     }
 };
-export const saveNewStatus = (status: any) => {
+export const saveNewStatus = (status: IStatus) => {
     return (dispatch: Function) => {
         api.getNewProfileStatus(status)
             .then(() => {

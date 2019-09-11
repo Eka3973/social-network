@@ -1,13 +1,10 @@
-
-
 export const SET_STATUS = 'SN/LOGIN/SET_STATUS';
 export const SET_MESSAGE = 'SN/LOGIN/SET_MESSAGE';
 
 export interface ILoginForm {
     login: string,
     password: string,
-    remember: boolean,
-
+    remember: boolean
 }
 
 export interface ILoginState {

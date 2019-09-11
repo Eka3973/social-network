@@ -1,46 +1,48 @@
 @import "../../../variables";
 
 .descriptionWrapper {
-    display: flex;
-    justify-content: flex-start;
-    height: 250px;
-    border-bottom: 1px solid $light-gray;
-}
-.fullName {
-    color: $dark-gray;
-}
-.descriptionImg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 360px;
+  display: flex;
+  justify-content: flex-start;
+  height: 250px;
+  border-bottom: 1px solid $light-gray;
 }
 
-.descriptionImg img {
+.fullName {
+  color: $dark-gray;
+}
+
+.descriptionImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+
+  & img {
     width: 180px;
     height: 180px;
     border-radius: 100%;
+  }
 }
 
 .descriptionUser {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 30px;
-    width: 100%;
-   }
-
-.descriptionUserBiography span:nth-child(1) {
-    color: $light-blue;
-    font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+  width: 100%;
 }
 
-.descriptionUserBiography :last-child{
-    padding-left: 10px;
-    color: $dark-gray;
-    font-size: 22px;
+.descriptionUserBiography span:nth-child(1) {
+  color: $light-blue;
+  font-size: 25px;
+}
+
+.descriptionUserBiography :last-child {
+  padding-left: 10px;
+  color: $dark-gray;
+  font-size: 22px;
 }
 
 .githubAddress:hover {
-    color: $light-green;;
+  color: $light-green;;
 }

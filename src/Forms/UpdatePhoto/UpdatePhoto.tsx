@@ -2,11 +2,11 @@ import React from 'react';
 import style from './UpdatePhoto.module.scss';
 
 interface IUpdatePhoto {
-    setImageChange:Function,
-    previewImage:any,
-    file:any,
-    getUserProfile:any,
-    getUrlPhotoToProfile:any,
+    setImageChange: Function,
+    previewImage: string,
+    file: string,
+    getUserProfile: Function,
+    getUrlPhotoToProfile: Function,
 
 }
 

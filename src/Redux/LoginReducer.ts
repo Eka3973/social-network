@@ -5,6 +5,8 @@ import api from "../DAL/samuraiAPI";
 import {setProfileStatus} from "./StatusReducer";
 import {ILoginAction, ILoginForm, ILoginState, SET_MESSAGE, SET_STATUS} from "../Types/TypesLogin";
 import {setPreloader} from "./PreloaderReducer";
+import {Dispatch} from "react";
+
 
 
 export const setStatus = (status: any) => ({type: SET_STATUS, status});
@@ -41,10 +43,10 @@ const loginReducer = (state = initialState, action: ILoginAction) => {
 export default loginReducer;
 
 export const loginUp = (login: ILoginForm, password: ILoginForm, rememberMe: ILoginForm) => {
-    return (dispatch: any) => {
+    // @ts-ignore
+    return (dispatch: Dispatch) => {
         dispatch(setPreloader(true));
         setStatus(statuses.INPROGRESS);
-
         api.makeLogin(login, password, rememberMe)
             .then(async (data: any) => {
                 if (data.resultCode === 0) {

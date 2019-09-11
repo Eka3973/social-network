@@ -1,15 +1,28 @@
 import profileHeaderImg from "../images/profileHeaderImg.jpg";
 import {reset} from 'redux-form';
 import api from "../DAL/samuraiAPI"
+import {
+    ADD_MY_POST,
+    CHANGE_PROFILE_PHOTO,
+    IProfileState,
+    ProfileActionType,
+    SET_AUTH_FULL_PROFILE
+} from "../Types/TypesProfile";
+import {Dispatch} from "redux";
+
+const imageChange = (previewImage: any, file: any) => ({type: CHANGE_PROFILE_PHOTO, previewImage, file});
+export const addPost = (addedPost: any) => ({type: ADD_MY_POST, post: addedPost});
+
+export const setAuthProfile = (aboutMe: any, photo: string, fullName: string, lookingForAJob: boolean,
+                               lookingForAJobDescription: string, facebook: string, twitter: string,
+                               youtube: string, github: string) =>
+    ({
+        type: SET_AUTH_FULL_PROFILE, photo, fullName, aboutMe, lookingForAJob,
+        lookingForAJobDescription, facebook, twitter, youtube, github
+    });
 
 
-export const ADD_MY_POST = 'SN/MY_POSTS/ADD_MY_POST';
-const SET_AUTH_FULL_PROFILE = 'SN/AUTH/SET_AUTH_FULL_PROFILE';
-const CHANGE_PROFILE_PHOTO = 'SW/PAGE_CHANGE_PHOTO/CHANGE_PROFILE_PHOTO';
-
-
-
-const initialState: any = {
+const initialState: IProfileState = {
     profileHeader: {
         profileImg: profileHeaderImg,
         profileAlt: 'programmer'
@@ -62,7 +75,7 @@ const initialState: any = {
 };
 
 
-const profileReducer = (state = initialState, action: any) => {
+const profileReducer = (state = initialState, action: ProfileActionType) => {
 
     switch (action.type) {
         case SET_AUTH_FULL_PROFILE: {
@@ -109,7 +122,7 @@ const profileReducer = (state = initialState, action: any) => {
 
 
 export const getUserProfile = () => {
-    return (dispatch: any, getState: any) => {
+    return (dispatch: Dispatch, getState: any) => {
         const userId = getState().auth.userInfo.userId;
         api.setFullUserProfile(userId)
             .then((data: any) => {
@@ -123,14 +136,13 @@ export const getUserProfile = () => {
                     data.contacts.twitter,
                     data.contacts.youtube,
                     data.contacts.github
-
                 ));
             })
     }
 };
 
 export const getEditProfile = (userProfile: object) => {
-    return (dispatch: any) => {
+    return (dispatch: Function) => {
         api.setEditProfile(userProfile)
             .then(() => {
                 dispatch(getUserProfile());
@@ -166,12 +178,5 @@ export const clearForm = () => {
     }
 };
 
-const imageChange = (previewImage: any, file: any) => ({type: CHANGE_PROFILE_PHOTO, previewImage, file});
-export const addPost = (addedPost: any) => ({type: ADD_MY_POST, post: addedPost});
-export const setAuthProfile = (aboutMe: any, photo: string, fullName: string, lookingForAJob: boolean,
-                               lookingForAJobDescription:string, facebook: string, twitter: string,
-                               youtube: string, github: string) =>
-    ({type: SET_AUTH_FULL_PROFILE, photo, fullName, aboutMe, lookingForAJob,
-                                   lookingForAJobDescription,  facebook, twitter, youtube, github});
 
 export default profileReducer;

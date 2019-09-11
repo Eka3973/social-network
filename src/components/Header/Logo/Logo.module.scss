@@ -1,14 +1,13 @@
 @import "../../../variables";
 
 
-.logo{
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: 2;
-}
+.logo {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
 
-.logo span {
+  &.logo span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +20,9 @@
     font-weight: 600;
     letter-spacing: -2px;
 
+  }
 }
+
+
 
 

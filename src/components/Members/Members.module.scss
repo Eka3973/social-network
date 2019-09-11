@@ -24,11 +24,10 @@
   width: 100px;
   height: 70px;
 
-}
-
-.userItem img {
-  width: 70px;
-  border-radius: 100%;
+  & img {
+    width: 70px;
+    border-radius: 100%;
+  }
 }
 
 .userData {
@@ -54,25 +53,24 @@
   flex-direction: row;
   align-items: center;
 
-}
+  & span:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 100%;
+    background: $light-blue;
+    color: white;
+  }
 
-.countFollower span:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  font-size: 13px;
-  border-radius: 100%;
-  background: $light-blue;
-  color: white;
-}
-
-.countFollower span:nth-child(2) {
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.4);
-  font-style: italic;
-  margin-left: 8px;
+  & span:nth-child(2) {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+    margin-left: 8px;
+  }
 }
 
 .buttons {
@@ -93,8 +91,8 @@
   margin-left: 30px;
 }
 
-.selectedPage{
-font-weight: bold;
+.selectedPage {
+  font-weight: bold;
 
   //&:hover{
   //  cursor: pointer;

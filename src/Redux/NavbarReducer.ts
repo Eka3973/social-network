@@ -4,9 +4,9 @@ import newsImg from "../images/news.svg";
 import musicImg from "../images/music.svg";
 import settingsImg from "../images/settings.svg";
 import followersImg from "../images/followers.svg";
-import {InavBar} from "../Types/TypesNavBar";
+import {INavBar} from "../Types/TypesNavBar";
 
-let initialState: InavBar[] =
+let initialState: INavBar[] =
     [
         {
             id: 1,

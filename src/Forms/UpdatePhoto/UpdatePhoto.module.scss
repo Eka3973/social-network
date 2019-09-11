@@ -2,60 +2,65 @@
 @import "../../mixin";
 
 .wrapper {
-    grid-row-start: 2;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    border-right: 1px solid $light-gray;
-    width: 100%;
-
-    color: $dark-gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-
-}
-.textNote{
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    font-size: 16px;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border-right: 1px solid $light-gray;
+  width: 100%;
+  color: $dark-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 
 }
+
+.textNote {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  font-size: 16px;
+
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 940px;
-    height: 350px;
-    border-style: dashed;
-    border-color: $light-gray;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 940px;
+  height: 350px;
+  border-style: dashed;
+  border-color: $light-gray;
+  margin-bottom: 20px;
 }
-.previewImage{
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
+
+.previewImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
 }
+
 .input {
-    width: 0.1px;
-    height: 0.1px;
+  width: 0.1px;
+  height: 0.1px;
 
 
 }
-.optionButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    @include button-large;
+
+.optionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  @include button-large;
 
 }
-.uploadButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include button-large;
+
+.uploadButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include button-large;
 }

@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-
 import Pagination from "./Pagination";
 import {AppState} from "../../../Redux/Redux-store";
 import {getUsers, setCurrentPage} from "../../../Redux/UsersReducer";
@@ -13,5 +12,5 @@ const mapStateToProps = (state: AppState) => {
     }
 };
 
-const ConnectedMembers = connect(mapStateToProps, {getUsers, setCurrentPage})(Pagination);
-export default ConnectedMembers;
+const ConnectedPagination = connect(mapStateToProps, {getUsers, setCurrentPage})(Pagination);
+export default ConnectedPagination;
