@@ -6,7 +6,7 @@ The Redux library is used to manage the state of the application.
 The Redux thunk middleware is used to provide basic Redux side-effect logic, including complex synchronous logic that requires storage access, and simple asynchronous logic such as AJAX requests.  
 To prevent accidental or incorrect use of data the project uses the Tapescripts language.
 And for sending and validating forms, the redux-form library is used.
-The project is developing as you add functionality from the backend
+The project is developing as you add functionality from the backend.
 
 ### Implemented functionality
 - side menu
