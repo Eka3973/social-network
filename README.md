@@ -1,5 +1,5 @@
 
-Social Network          
+# Social Network          
 The repository contains the source code of the social network project, which is still being developed in frames of the JS library React studying.      
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).                 
 The Redux library is used to manage the state of the application.                                                                       
@@ -8,7 +8,7 @@ To prevent accidental or incorrect use of data the project uses the Tapescripts 
 And for sending and validating forms, the redux-form library is used.
 The project is developing as you add functionality from the backend
 
-Implemented functionality
+### Implemented functionality
 - side menu
 - login page
 - user profile
@@ -18,11 +18,11 @@ Implemented functionality
 - subscription and unsubscribe for the selected user
 - adding user posts
 
-Installation and Prerequisites
-You need to Install create-react-app package globally by this command npm install -g create-react-app (npm command).
-Download or Clone the Project from from this repository
-Run command on terminal or cmd npm install or yarn install.
-Then Run command npm start or yarn start.
+### Installation and Prerequisites
+1. You need to Install `create-react-app` package globally by this command `npm install -g create-react-app (npm command)`.
+2. Download or Clone the Project from this repository.
+3. Run command on `terminal` or `cmd` `npm install` or `yarn install`.
+4. Then Run command `npm start` or `yarn start`
 
-Licences
+### Licences
 All the Code and information of this repository free to access. User can modified it and share it and if he/she want to contribute it, Feel to free to contribue.
