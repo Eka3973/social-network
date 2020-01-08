@@ -24,5 +24,4 @@ The project is developing as you add functionality from the backend.
 3. Run command on `terminal` or `cmd` `npm install` or `yarn install`.
 4. Then Run command `npm start` or `yarn start`
 
-### Licences
-All the Code and information of this repository free to access. User can modified it and share it and if he/she want to contribute it, Feel to free to contribue.
+
